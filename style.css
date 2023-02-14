@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+
+body {
+    font-family: "lato", sans-serif;
+    
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: #d5a016;
+    color: black;
+}
+
+.main {
+    height: 100%;
+}
+
+.sidebar {
+    position: fixed;
+    height: 100%;
+    padding: 10px 60px 10px 10px;
+    background-color: rgb(37, 37, 37);
+    float: left;
+    box-shadow: 10px 0px 0px #d5a016;
+}
+
+.sidebarDum {
+    visibility: hidden;
+    height: 100%;
+    padding: 10px 60px 10px 10px;
+    background-color: rgb(37, 37, 37);
+    float: left;
+    box-shadow: 10px 0px 0px #d5a016;
+}
+
+.logo {
+    width: 14rem;
+    height: 5rem;
+}
+
+ul {
+    line-height: 40px;
+    margin-top: 2em;
+    margin-left: 1em;
+    list-style-type: none
+}
+
+a li:hover {
+    margin-left: -10px;
+    padding: 0px 10px;
+    background-color: #d5a016;
+    color: #343434;
+}
+
+a {
+    color: rgb(213, 213, 213);
+    text-decoration: none;
+}
+
+.title {
+    padding-top: 25px;
+    margin-bottom: 1em;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.inputCont {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: repeat(10,20%);
+    gap: 3px 20px;
+    padding: 0px 25px;
+}
+
+input, select {
+    padding: 0px 5px;
+}
+
+.labnam {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    align-self: center;
+}
+
+.innam {
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+.labkep {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    align-self: center;
+}
+
+.inkep {
+    grid-column: 2/4;
+    grid-row: 4/5;
+}
+
+.labtel {
+    grid-column: 2/3;
+    grid-row: 5/6;
+    align-self: center;
+}
+
+.intel {
+    grid-column: 2/3;
+    grid-row: 6/7;
+}
+
+.labru {
+    grid-column: 3/4;
+    grid-row: 5/6;
+    align-self: center;
+}
+
+.inru {
+    grid-column: 3/4;
+    grid-row: 6/7;
+}
+
+.labtan {
+    grid-column: 2/3;
+    grid-row: 7/8;
+    align-self: center;
+}
+
+.intan {
+    grid-column: 2/3;
+    grid-row: 8/9;
+}
+
+.labwa {
+    grid-column: 3/4;
+    grid-row: 7/8;
+    align-self: center;
+}
+
+.inwa {
+    grid-column: 3/4;
+    grid-row: 8/9;
+}
+
+.button {
+    border-radius: 5px;
+    font-weight: 400;
+    color: black;
+    background-color: #d5a016;
+    border: 0px;
+    grid-column: 2/4;
+    grid-row: 10/11;
+}
+
+.button:hover {
+    color: black;
+    background-color: #d59f16b4;
+}
+
+.footerCont {
+    box-shadow: 0px -1px 0px #bcbcbc;
+    padding: 5px;
+    z-index: -1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.p1 {
+    margin-left: 23em;
+    float: left;
+}
+
+.p2 {
+    float: right;
+}
+
+.footer {
+    font-size: 0.8em;
+    padding: 0px 20px;
+    color: #7a7a7a;
+}
+
+/* TABEL TAB STATUS */
+
+.tabel {
+    display: flex;
+    justify-content: center;
+}
+
+table, td, th {
+    border: 0px solid black;
+    border-collapse: collapse;
+    padding: 13px 7px;
+}
+
+th {
+    background-color: #d5a016;
+}
+
+tr:nth-child(even) {
+    background-color: #dedede;
+}
+
+tr:hover {
+    background-color: #fecd51;
+    color: #0a0a0a;
+}
+
+td.qe {
+    text-align: center;
+}
+
+td.diterima {
+    background-color: rgb(0, 224, 11);
+    color: white;
+}
+
+td.ditolak {
+    background-color: red;
+    color: white;
+}
