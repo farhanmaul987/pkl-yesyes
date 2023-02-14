@@ -199,11 +199,12 @@ input, select {
 table, td, th {
     border: 0px solid black;
     border-collapse: collapse;
-    padding: 13px 7px;
+    padding: 13px;
 }
 
 th {
     background-color: #d5a016;
+    text-align: start;
 }
 
 tr:nth-child(even) {
@@ -213,10 +214,6 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #fecd51;
     color: #0a0a0a;
-}
-
-td.qe {
-    text-align: center;
 }
 
 td.diterima {
