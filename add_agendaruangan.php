@@ -17,14 +17,14 @@
         <div class="sidebar">
             <img class="logo" src="./assets/cropped-Logo-BPK-crop.png" alt="Logo BPK">
             <ul>
+                <a href="./konf_agendaruangan.php">
+                    <li>Konfirmasi Peminjaman</li>
+                </a>
                 <a href="./add_agendaruangan.php">
                     <li>Form Peminjaman</li>
                 </a>
                 <a href="./status.php">
                     <li>Status Ajuan</li>
-                </a>
-                <a href="">
-                    <li>Slot Tersedia</li>
                 </a>
             </ul>
         </div>
@@ -32,14 +32,14 @@
         <div class="sidebarDum">
             <img class="logo" src="./assets/cropped-Logo-BPK-crop.png" alt="Logo BPK">
             <ul>
+                <a href="./konf_agendaruangan.php">
+                    <li>Konfirmasi Peminjaman</li>
+                </a>
                 <a href="./index.php">
                     <li>Form Peminjaman</li>
                 </a>
                 <a href="./status.php">
                     <li>Status Ajuan</li>
-                </a>
-                <a href="">
-                    <li>Slot Tersedia</li>
                 </a>
             </ul>
         </div>
@@ -49,6 +49,7 @@
         <div class="title">Form Ajuan Peminjaman Ruang Rapat</div>
 
         <div class="forms">
+            <?php date_default_timezone_set('Asia/Jakarta');?>
             <form role="form" action="act_reqagendaruangan.php" enctype="multipart/form-data" method="POST">
                 <div class="inputCont">
                     <label class="labnam" for="nama">Nama :</label>
