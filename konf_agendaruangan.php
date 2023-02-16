@@ -1,4 +1,4 @@
-<?php include('./index_files/conndb3.php');?>
+<?php require_once('./index_files/conndb3.php');?>
 
 <html lang="en">
 
@@ -49,10 +49,10 @@
         <div class="title">Form Ajuan Peminjaman Ruang Rapat</div>
 
         <div class="forms">
-            <?php date_default_timezone_set('Asia/Jakarta');?>
+        <?php date_default_timezone_set('Asia/Jakarta');?>
             <form role="form" action="act_reqagendaruangan.php" enctype="multipart/form-data" method="POST">
                 <div class="inputCont">
-                    <label class="labnam" for="nama">Nama :</label>
+                    <label class="labnam" for="nama">Permintaan Dari :</label>
                     <input class="box innam" type="text" name="nama" id="nama" value="<?php //echo $nama;?>">
 
                     <label class="labkep" for="keperluan">Keperluan :</label>

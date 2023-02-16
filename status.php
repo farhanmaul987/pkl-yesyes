@@ -1,6 +1,4 @@
-<?php 
-require_once('./index_files/conndb3.php');
-?>
+<?= require_once('./index_files/conndb3.php')?>
 
 <html lang="en">
 
@@ -19,14 +17,14 @@ require_once('./index_files/conndb3.php');
         <div class="sidebar">
             <img class="logo" src="./assets/cropped-Logo-BPK-crop.png" alt="Logo BPK">
             <ul>
-                <a href="./index.php">
+                <a href="./konf_agendaruangan.php">
+                    <li>Konfirmasi Peminjaman</li>
+                </a>
+                <a href="./add_agendaruangan.php">
                     <li>Form Peminjaman</li>
                 </a>
                 <a href="./status.php">
                     <li>Status Ajuan</li>
-                </a>
-                <a href="">
-                    <li>Slot Tersedia</li>
                 </a>
             </ul>
         </div>
@@ -34,14 +32,14 @@ require_once('./index_files/conndb3.php');
         <div class="sidebarDum">
             <img class="logo" src="./assets/cropped-Logo-BPK-crop.png" alt="Logo BPK">
             <ul>
-                <a href="./index.php">
+                <a href="./konf_agendaruangan.php">
+                    <li>Konfirmasi Peminjaman</li>
+                </a>
+                <a href="./add_agendaruangan.php">
                     <li>Form Peminjaman</li>
                 </a>
                 <a href="./status.php">
                     <li>Status Ajuan</li>
-                </a>
-                <a href="">
-                    <li>Slot Tersedia</li>
                 </a>
             </ul>
         </div>
