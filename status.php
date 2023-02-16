@@ -1,4 +1,6 @@
-<?= require_once('./index_files/conndb3.php')?>
+<?php 
+require_once('./index_files/conndb3.php');
+?>
 
 <html lang="en">
 
@@ -61,137 +63,27 @@
                     <th>Status</th>
                 </tr>
 
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Akmal Aliffandhi Anwar</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Ngentot</td>
-                    <td>2022-08-26</td>
-                    <td>16.00</td>
-                    <td class="diterima">Diterima</td>
-                </tr>
+                <?php
+                $no = 1;
+                $query = mysqli_query(connection(), 'SELECT * FROM t_pinjam');
+                while ($d = mysqli_fetch_array($query)) {
+                ?>
 
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Rifki Bahrul Ulum</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Ngewe</td>
-                    <td>2022-08-26</td>
-                    <td>13.00</td>
-                    <td class="ditolak">Ditolak</td>
-                </tr>
+                    <tr class="">
+                        <td class="qe"><?php echo $no++; ?></td>
+                        <td><?php echo $d['nama']; ?></td>
+                        <td><?php echo $d['telp']; ?></td>
+                        <td><?php echo $d['id_ruangan']; ?></td>
+                        <td><?php echo $d['keperluan']; ?></td>
+                        <td><?php echo $d['tanggal']; ?></td>
+                        <td><?php echo $d['waktu']; ?></td>
+                        <td class="diterima">Diterima</td>
+                    </tr>
 
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Farhan Maulana M</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Blowjob</td>
-                    <td>2022-08-26</td>
-                    <td>13.00</td>
-                    <td>Pending</td>
-                </tr>
+                <?php
+                }
+                ?>
 
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Akmal Aliffandhi Anwar</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Ngentot</td>
-                    <td>2022-08-26</td>
-                    <td>16.00</td>
-                    <td class="diterima">Diterima</td>
-                </tr>
-
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Rifki Bahrul Ulum</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Ngewe</td>
-                    <td>2022-08-26</td>
-                    <td>13.00</td>
-                    <td class="ditolak">Ditolak</td>
-                </tr>
-
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Farhan Maulana M</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Blowjob</td>
-                    <td>2022-08-26</td>
-                    <td>13.00</td>
-                    <td>Pending</td>
-                </tr>
-
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Akmal Aliffandhi Anwar</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Ngentot</td>
-                    <td>2022-08-26</td>
-                    <td>16.00</td>
-                    <td class="diterima">Diterima</td>
-                </tr>
-
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Rifki Bahrul Ulum</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Ngewe</td>
-                    <td>2022-08-26</td>
-                    <td>13.00</td>
-                    <td class="ditolak">Ditolak</td>
-                </tr>
-
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Farhan Maulana M</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Blowjob</td>
-                    <td>2022-08-26</td>
-                    <td>13.00</td>
-                    <td>Pending</td>
-                </tr>
-
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Akmal Aliffandhi Anwar</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Ngentot</td>
-                    <td>2022-08-26</td>
-                    <td>16.00</td>
-                    <td class="diterima">Diterima</td>
-                </tr>
-
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Rifki Bahrul Ulum</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Ngewe</td>
-                    <td>2022-08-26</td>
-                    <td>13.00</td>
-                    <td class="ditolak">Ditolak</td>
-                </tr>
-
-                <tr class="">
-                    <td class="qe">1</td>
-                    <td>Farhan Maulana M</td>
-                    <td>081823133321</td>
-                    <td>Wilis</td>
-                    <td>Blowjob</td>
-                    <td>2022-08-26</td>
-                    <td>13.00</td>
-                    <td>Pending</td>
-                </tr>
             </table>
         </div>
 

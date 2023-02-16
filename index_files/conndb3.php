@@ -3,11 +3,11 @@
 	function connection(){
 
 		$dbHost = 'localhost';
-		$dbUername = 'root';
+		$dbUsername = 'root';
 		$dbPassword = '';
 		$dbName = 'pinjam_ruangan';
 
-		$conn = mysqli_connect($dbHost, $dbUername, $dbPassword);
+		$conn = mysqli_connect($dbHost, $dbUsername, $dbPassword);
 
 		if (!$conn) {
 			die('Koneksi gagal terhubung :'. mysqli_error());
