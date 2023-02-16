@@ -1,4 +1,4 @@
-<?= require_once('./index_files/conndb3.php')?>
+<?php require_once('./index_files/conndb3.php')?>
 
 <html lang="en">
 
