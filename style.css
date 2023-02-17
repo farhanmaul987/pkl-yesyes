@@ -231,6 +231,14 @@ td.ditolak {
     color: white;
 }
 
-td.icon {
-    padding-left: 30px;
+td a .edit{
+    color: #d5a016;
+}
+
+td a .accept{
+    color: rgb(0, 224, 11);
+}
+
+td a .decline{
+    color: red;
 }
