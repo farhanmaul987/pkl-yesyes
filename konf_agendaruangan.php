@@ -48,44 +48,41 @@
     <section class="main">
         <div class="title">Form Ajuan Peminjaman Ruang Rapat</div>
 
-        <div class="forms">
-        <?php date_default_timezone_set('Asia/Jakarta');?>
-            <form role="form" action="act_reqagendaruangan.php" enctype="multipart/form-data" method="POST">
-                <div class="inputCont">
-                    <label class="labnam" for="nama">Permintaan Dari :</label>
-                    <input class="box innam" type="text" name="nama" id="nama" value="<?php //echo $nama;?>">
+        <div class="tabel">
+            <table style="width: 90%;">
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>No Telepon</th>
+                    <th>Ruang</th>
+                    <th>Keperluan</th>
+                    <th>Tanggal</th>
+                    <th>Waktu</th>
+                    <th>Action</th>
+                </tr>
 
-                    <label class="labkep" for="keperluan">Keperluan :</label>
-                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php //echo $keperluan;?>">
+                <?php
+                $no = 1;
+                $query = mysqli_query(connection(), 'SELECT * FROM t_pinjam');
+                while ($d = mysqli_fetch_array($query)) {
+                ?>
 
-                    <label class="labtel" for="telp">Nomor Telepon :</label>
-                    <input class="box intel" type="text" name="telp" id="telp" value="<?php //echo $telp;?>">
+                    <tr class="">
+                        <td class="qe"><?php echo $no++; ?></td>
+                        <td><?php echo $d['nama']; ?></td>
+                        <td><?php echo $d['telp']; ?></td>
+                        <td><?php echo $d['id_ruangan']; ?></td>
+                        <td><?php echo $d['keperluan']; ?></td>
+                        <td><?php echo $d['tanggal']; ?></td>
+                        <td><?php echo $d['waktu']; ?></td>
+                        <td class="icon"><a href="<?php echo "edit.php?id_pinjam=".$d['id_pinjam']; ?>"><iconify-icon icon="material-symbols:edit"></iconify-icon></a></td>
+                    </tr>
 
-                    <label class="labru" for="ruangan">Ruangan :</label>
-                    <select class="box inru" id="ruangan" name="ruangan" size="1">
-                        <option value="-" selected>-</option>
-                        <?php 
-                            $query  = "SELECT * FROM t_ruangan";
-                            $result = mysqli_query(connection(), $query);
+                <?php
+                }
+                ?>
 
-                            while ($data = mysqli_fetch_array($result)) {
-                            ?>
-                                <option value="<?= $data['id_ruangan'];?>">
-                                    <?= $data['n_ruangan'];?>
-                                </option>
-                        <?php };?>
-                    </select>
-                    <!--<input class="box inru" type="text" name="ruang" id="ruang">-->
-
-                    <label class="labtan" for="tanggal">Tanggal :</label>
-                    <input class="box1 intan" type="date" name="tanggal" id="tanggal" value="<?= date('Y-m-d');?>" autofocus>
-
-                    <label class="labwa" for="waktu">Waktu :</label>
-                    <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?= date('H:i');?>" autofocus>
-
-                    <input class="button" type="submit" value="Kumpulkan" name="submit" />
-                </div>
-            </form>
+            </table>
         </div>
 
         <div class="footerCont">
@@ -96,6 +93,8 @@
         </div>
     </section>
 
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
 </body>
 
 </html>
