@@ -22,11 +22,12 @@
       $nama = $_POST['nama'];
       $keperluan  = $_POST['keperluan'];
       $telp  = $_POST['telp'];
-      $id_ruanganUpd  = $_POST['id_ruangan'];
+      $ruanganUpd  = $_POST['id_ruangan'];
       $tanggalUpd  = $_POST['tanggal'];
       $waktuUpd  = $_POST['waktu'];
+      $statusUpd  = $_POST['status'];
       //query SQL
-      $sql = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$id_ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd' WHERE id_pinjam='$id_pinjam'";
+      $sql = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd', status='$statusUpd' WHERE id_pinjam='$id_pinjam'";
 
       //eksekusi query
       $result = mysqli_query(connection(), $sql);
@@ -38,7 +39,7 @@
       }
 
       //redirect ke halaman lain
-      header('Location: konf_agendaruangan.php');
+      header('Location: status.php');
   }
 ?>
 
@@ -104,14 +105,14 @@
                     <label class="labtel" for="telp">Nomor Telepon :</label>
                     <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>" disabled>
 
-                    <label class="labru" for="ruangan">Ruangan :</label>
-                    <select class="box inru" id="ruangan" name="ruangan" size="1">
+                    <label class="labru" for="ruanganUpd">Ruangan :</label>
+                    <select class="box inru" id="ruanganUpd" name="ruanganUpd" size="1">
                         <option value="<?php echo $data['id_ruangan'];?>" selected><?php echo $data['id_ruangan'];?></option>
                         <?php 
-                            $query  = "SELECT * FROM t_ruangan";
-                            $result = mysqli_query(connection(), $query);
+                            $queryy  = "SELECT * FROM t_ruangan";
+                            $resultt = mysqli_query(connection(), $queryy);
 
-                            while ($val = mysqli_fetch_array($result)) {
+                            while ($val = mysqli_fetch_array($resultt)) {
                             ?>
                                 <option value="<?= $val['id_ruangan'];?>">
                                     <?= $val['n_ruangan'];?>
@@ -119,14 +120,14 @@
                         <?php };?>
                     </select>
 
-                    <label class="labtan" for="tanggal">Tanggal :</label>
-                    <input class="box1 intan" type="date" name="tanggal" id="tanggal" name="tanggal" value="<?= $data['tanggal'];?>">
+                    <label class="labtan" for="tanggalUpd">Tanggal :</label>
+                    <input class="box1 intan" type="date" name="tanggalUpd" id="tanggalUpd" name="tanggalUpd" value="<?= $data['tanggal'];?>">
 
-                    <label class="labwa" for="waktu">Waktu :</label>
-                    <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?= $data['waktu'];?>">
+                    <label class="labwa" for="waktuUpd">Waktu :</label>
+                    <input class="box2 inwa" type="time" name="waktuUpd" id="waktuUpd" value="<?= $data['waktu'];?>">
 
-                    <label class="labsta" for="status">Status :</label>
-                    <select class="box insta" id="status" name="status" size="1">
+                    <label class="labsta" for="statusUpd">Status :</label>
+                    <select class="box insta" id="statusUpd" name="statusUpd" size="1">
                         <option value="Pending" selected>Pending</option>
                         <option value="Diterima">Diterima</option>
                         <option value="Ditolak">Ditolak</option>
