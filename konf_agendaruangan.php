@@ -78,7 +78,7 @@
 
                         <td class="icon"><a href="<?php echo "edit.php?id_pinjam=" . $d['id_pinjam']; ?>"><iconify-icon class="edit" icon="mdi:pencil-box" width="25" height="25"></iconify-icon></a></td>
 
-                        <td class="icon"><a href=""><iconify-icon class="accept" icon="material-symbols:check-box-rounded" width="25" height="25"></iconify-icon></a></td>
+                        <!-- <td class="icon"><a href=""><iconify-icon class="accept" icon="material-symbols:check-box-rounded" width="25" height="25"></iconify-icon></a></td> -->
 
                         <td class="icon"><a href="<?php echo "act_hapusagendaruangan.php?id_pinjam=" . $d['id_pinjam']; ?>"><iconify-icon class="decline" icon="mdi:close-box" width="25" height="25" onclick="return confirm('Yakin akan menghapus data ?')"></iconify-icon></a></td>
                     </tr>

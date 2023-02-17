@@ -1,46 +1,53 @@
 <?php
-//memanggil file conn.php yang berisi koneski ke database
-//dengan include, semua kode dalam file conn.php dapat digunakan pada file index.php
-include('./index_files/conndb3.php');
+// //memanggil file conn.php yang berisi koneski ke database
+// //dengan include, semua kode dalam file conn.php dapat digunakan pada file index.php
+// require_once('index_files/conndb3.php');
 
-$status = '';
-$result = '';
-//melakukan pengecekan apakah ada variable GET yang dikirim
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (isset($_GET['id_pinjam'])) {
-        //query SQL
-        $id_pinjamUpd = $_GET['id_pinjam'];
-        $query = "SELECT * FROM t_pinjam WHERE id_pinjam = '$id_pinjamUpd'";
+// $status = '';
+// $result = '';
+// //melakukan pengecekan apakah ada variable GET yang dikirim
+// if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+//     if (isset($_GET['id_pinjam'])) {
+//         //query SQL
+//         $id_pinjamUpd = $_GET['id_pinjam'];
+//         $query = "SELECT * FROM t_pinjam WHERE id_pinjam = '$id_pinjamUpd'";
 
-        //eksekusi query
-        $result = mysqli_query(connection(), $query);
-    }
-}
-//   melakukan pengecekan apakah ada form yang dipost
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_pinjam = $_POST['id_pinjam'];
-    $nama = $_POST['nama'];
-    $keperluan  = $_POST['keperluan'];
-    $telp  = $_POST['telp'];
-    $ruanganUpd  = $_POST['id_ruangan'];
-    $tanggalUpd  = $_POST['tanggal'];
-    $statusUpd  = $_POST['status'];
-    //query SQL
-    $sql = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd', status='$statusUpd' WHERE id_pinjam='$id_pinjam'";
+//         //eksekusi query
+//         $result = mysqli_query(connection(), $query);
+//     }
+// }
+// //   melakukan pengecekan apakah ada form yang dipost
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $id_pinjam = $_POST['id_pinjam'];
+//     $nama = $_POST['nama'];
+//     $keperluan  = $_POST['keperluan'];
+//     $telp  = $_POST['telp'];
+//     $ruanganUpd  = $_POST['id_ruangan'];
+//     $tanggalUpd  = $_POST['tanggal'];
+//     $statusUpd  = $_POST['status'];
+//     //query SQL
+//     $sql = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd', status='$statusUpd' WHERE id_pinjam='$id_pinjam'";
 
-    //eksekusi query
-    $result = mysqli_query(connection(), $sql);
-    if ($result) {
-        $status = 'Data berhasil dirubah';
-    } else {
-        $status = 'error';
-    }
+//     //eksekusi query
+//     $result = mysqli_query(connection(), $sql);
+//     if ($result) {
+//         $status = 'Data berhasil dirubah';
+//     } else {
+//         $status = 'error';
+//     }
 
-    //redirect ke halaman lain
-    header('Location: status.php');
-}
+//     //redirect ke halaman lain
+//     // header('Location: status.php');
+// }
 
+    include('./index_files/conndb3.php');
+
+    $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE t_pinjam.id_ruangan = t_ruangan.id_ruangan and id_pinjam = '$_GET[id_pinjam]'");
 ?>
+
+<?php if (isset($_POST['proses'])) {
+    mysqli_query(connection(), "UPDATE t_pinjam SET nama = '$_POST[nama]', keperluan='$_POST[keperluan]', telp='$_POST[telp]', id_ruangan='$_POST[ruanganUpd]', tanggal='$_POST[tanggalUpd]', waktu='$_POST[waktuUpd]', status='$_POST[statusUpd]' WHERE id_pinjam=$_GET[id_pinjam]");
+}?>
 
 
 <html lang="en">
@@ -94,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="forms">
             <?php while ($data = mysqli_fetch_array($result)) : ?>
                 <?php date_default_timezone_set('Asia/Jakarta'); ?>
-                <form role="form" action=" " enctype="multipart/form-data" method="POST">
+                <form role="form" action="" enctype="multipart/form-data" method="POST">
                     <div class="inputCont">
                         <label class="labnam" for="nama">Nama :</label>
                         <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama']; ?>" disabled>
@@ -107,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <label class="labru" for="ruanganUpd">Ruangan :</label>
                         <select class="box inru" id="ruanganUpd" name="ruanganUpd" size="1">
-                            <option value="<?php echo $data['id_ruangan']; ?>" selected><?php echo $data['id_ruangan']; ?></option>
+                            <option value="<?= $data['id_ruangan']; ?>" selected><?= $data['n_ruangan']; ?></option>
                             <?php
                             $queryy  = "SELECT * FROM t_ruangan";
                             $resultt = mysqli_query(connection(), $queryy);
@@ -133,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <option value="Ditolak">Ditolak</option>
                         </select>
 
-                        <input class="button" type="submit" value="Kumpulkan" name="submit" />
+                        <input class="button" type="submit" value="Kumpulkan" name="proses" />
                     </div>
                 </form>
             <?php endwhile; ?>

@@ -25,5 +25,5 @@ require_once('./index_files/conndb3.php');
                 echo"<script>alert('Data gagal ditambahkan'); window.location='add_agendaruangan.php.php';</script>";
             }
         }
-        header('Location: status.php?status='.$status);
+        // header('Location: status.php?status='.$status);
     } // END CREATE LOGIC
