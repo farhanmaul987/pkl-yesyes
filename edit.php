@@ -124,7 +124,7 @@
                     <input class="box1 intan" type="date" name="tanggal" id="tanggal" name="tanggal" value="<?= $data['tanggal'];?>">
 
                     <label class="labwa" for="waktu">Waktu :</label>
-                    <input class="box2 inwa" type="text" name="waktu" id="waktu" value="<?= $data['waktu'];?>">
+                    <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?= $data['waktu'];?>">
 
                     <input class="button" type="submit" value="Kumpulkan" name="submit" />
                 </div>
