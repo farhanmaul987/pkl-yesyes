@@ -58,7 +58,7 @@
                     <th>Keperluan</th>
                     <th>Tanggal</th>
                     <th>Waktu</th>
-                    <th>Action</th>
+                    <th colspan="3" style="text-align:center">Action</th>
                 </tr>
 
                 <?php
@@ -75,7 +75,9 @@
                         <td><?php echo $d['keperluan']; ?></td>
                         <td><?php echo $d['tanggal']; ?></td>
                         <td><?php echo $d['waktu']; ?></td>
-                        <td class="icon"><a href="<?php echo "edit.php?id_pinjam=".$d['id_pinjam']; ?>"><iconify-icon icon="material-symbols:edit"></iconify-icon></a></td>
+                        <td class="icon"><a href="<?php echo "edit.php?id_pinjam=".$d['id_pinjam']; ?>"><iconify-icon class="edit" icon="mdi:pencil-box" width="25" height="25"></iconify-icon></a></td>
+                        <td class="icon"><a href=""><iconify-icon class="accept" icon="material-symbols:check-box-rounded" width="25" height="25"></iconify-icon></a></td>
+                        <td class="icon"><a href=""><iconify-icon class="decline" icon="mdi:close-box" width="25" height="25"></iconify-icon></a></td>
                     </tr>
 
                 <?php

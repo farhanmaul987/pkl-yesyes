@@ -38,7 +38,7 @@
       }
 
       //redirect ke halaman lain
-      header('Location: konf_agendaruangan.php');
+      header('Location: status.php');
   }
 ?>
 
@@ -96,41 +96,41 @@
             <form role="form" action="edit.php" enctype="multipart/form-data" method="POST">
                 <div class="inputCont">
                     <label class="labnam" for="nama">Nama :</label>
-                    <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama'];?>" disabled>
+                    <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama'];?>">
 
                     <label class="labkep" for="keperluan">Keperluan :</label>
-                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php echo $data['keperluan'];?>" disabled>
+                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php echo $data['keperluan'];?>">
 
                     <label class="labtel" for="telp">Nomor Telepon :</label>
-                    <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>" disabled>
+                    <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>">
 
                     <label class="labru" for="ruangan">Ruangan :</label>
-                    <select class="box inru" id="ruangan" name="ruangan" size="1" data-component="dropdown" autofocus>
-                        <option value="<?php echo $data['id_ruangan'];?>" selected></option>
+                    <select class="box inru" id="ruangan" name="ruangan" size="1">
+                        <option value="<?php echo $data['id_ruangan'];?>" selected><?php echo $data['id_ruangan'];?></option>
                         <?php 
                             $query  = "SELECT * FROM t_ruangan";
                             $result = mysqli_query(connection(), $query);
 
-                            while ($data = mysqli_fetch_array($result)) {
+                            while ($val = mysqli_fetch_array($result)) {
                             ?>
-                                <option value="<?= $data['id_ruangan'];?>">
-                                    <?= $data['n_ruangan'];?>
+                                <option value="<?= $val['id_ruangan'];?>">
+                                    <?= $val['n_ruangan'];?>
                                 </option>
                         <?php };?>
                     </select>
                     <!--<input class="box inru" type="text" name="ruang" id="ruang">-->
 
                     <label class="labtan" for="tanggal">Tanggal :</label>
-                    <input class="box1 intan" type="date" name="tanggal" id="tanggal" value="<?php echo $data['tanggalUpd'];  ?>">
+                    <input class="box1 intan" type="date" name="tanggal" id="tanggal" name="tanggal" value="<?= $data['tanggal'];?>">
 
                     <label class="labwa" for="waktu">Waktu :</label>
-                    <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?php echo $data['waktu'];  ?>">
+                    <input class="box2 inwa" type="text" name="waktu" id="waktu" value="<?= $data['waktu'];?>">
 
                     <input class="button" type="submit" value="Kumpulkan" name="submit" />
                 </div>
             </form>
+            <?php endwhile; ?>
         </div>
-        <?php endwhile; ?>
 
         <div class="footerCont">
             <div class="footer">

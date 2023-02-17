@@ -53,13 +53,13 @@
             <form role="form" action="act_reqagendaruangan.php" enctype="multipart/form-data" method="POST">
                 <div class="inputCont">
                     <label class="labnam" for="nama">Nama :</label>
-                    <input class="box innam" type="text" name="nama" id="nama">
+                    <input class="box innam" type="text" name="nama" id="nama" value="<?php //echo $nama;?>">
 
                     <label class="labkep" for="keperluan">Keperluan :</label>
-                    <input class="box inkep" type="text" name="keperluan" id="keperluan">
+                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php //echo $keperluan;?>">
 
                     <label class="labtel" for="telp">Nomor Telepon :</label>
-                    <input class="box intel" type="text" name="telp" id="telp"">
+                    <input class="box intel" type="text" name="telp" id="telp" value="<?php //echo $telp;?>">
 
                     <label class="labru" for="ruangan">Ruangan :</label>
                     <select class="box inru" id="ruangan" name="ruangan" size="1">
