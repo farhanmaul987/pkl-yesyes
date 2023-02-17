@@ -18,11 +18,7 @@ require_once('./index_files/conndb3.php');
             $query	 	= "INSERT INTO t_pinjam (nama, keperluan, telp, id_ruangan, tanggal, waktu) VALUES ('$nama', '$keperluan', '$telp', '$ruangan', '$tanggal', '$waktu')";
             $result = mysqli_query(connection(), $query);
     
-            if ($result) {
-                $sukses = "Sukses memasukan data!!";
-            } else {
-                $eror	= "Gagal masukkan data!!";
-            }
+            header("Location : status.php");
         }
     } // END CREATE LOGIC
 
