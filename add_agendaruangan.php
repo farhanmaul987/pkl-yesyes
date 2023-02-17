@@ -53,16 +53,16 @@
             <form role="form" action="act_reqagendaruangan.php" enctype="multipart/form-data" method="POST">
                 <div class="inputCont">
                     <label class="labnam" for="nama">Nama :</label>
-                    <input class="box innam" type="text" name="nama" id="nama">
+                    <input class="box innam" type="text" name="nama" id="nama" required>
 
                     <label class="labkep" for="keperluan">Keperluan :</label>
-                    <input class="box inkep" type="text" name="keperluan" id="keperluan">
+                    <input class="box inkep" type="text" name="keperluan" id="keperluan" required>
 
                     <label class="labtel" for="telp">Nomor Telepon :</label>
-                    <input class="box intel" type="text" name="telp" id="telp">
+                    <input class="box intel" type="text" name="telp" id="telp" required>
 
                     <label class="labru" for="ruangan">Ruangan :</label>
-                    <select class="box inru" id="ruangan" name="ruangan" size="1">
+                    <select class="box inru" id="ruangan" name="ruangan" size="1" required>
                         <option value="-" selected>-</option>
                         <?php
                         $query  = "SELECT * FROM t_ruangan";
@@ -78,10 +78,10 @@
                     <!--<input class="box inru" type="text" name="ruang" id="ruang">-->
 
                     <label class="labtan" for="tanggal">Tanggal :</label>
-                    <input class="box1 intan" type="date" name="tanggal" id="tanggal" value="<?= date('Y-m-d'); ?>" autofocus>
+                    <input class="box1 intan" type="date" name="tanggal" id="tanggal" value="<?= date('Y-m-d'); ?>" required autofocus>
 
                     <label class="labwa" for="waktu">Waktu :</label>
-                    <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?= date('H:i'); ?>" autofocus>
+                    <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?= date('H:i'); ?>" required autofocus>
 
                     <input type="hidden" id="status" name="status" value="Pending">
 
