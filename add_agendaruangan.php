@@ -85,7 +85,7 @@
 
                     <input type="hidden" id="status" name="status" value="Pending">
 
-                    <input class="button" type="submit" value="Kumpulkan" name="submit" />
+                    <input class="button1" type="submit" value="Kumpulkan" name="submit" />
                 </div>
             </form>
         </div>

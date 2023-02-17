@@ -25,6 +25,7 @@ require_once('./index_files/conndb3.php');
                 $eror	= "Gagal masukkan data!!";
             }
         }
+        header('Location: status.php?status='.$status);
     } // END CREATE LOGIC
 
 ?>

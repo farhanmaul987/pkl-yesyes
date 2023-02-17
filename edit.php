@@ -125,6 +125,13 @@
                     <label class="labwa" for="waktu">Waktu :</label>
                     <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?= $data['waktu'];?>">
 
+                    <label class="labsta" for="status">Status :</label>
+                    <select class="box insta" id="status" name="status" size="1">
+                        <option value="Pending" selected>Pending</option>
+                        <option value="Diterima">Diterima</option>
+                        <option value="Diterima">Diterima</option>
+                    </select>
+
                     <input class="button" type="submit" value="Kumpulkan" name="submit" />
                 </div>
             </form>
