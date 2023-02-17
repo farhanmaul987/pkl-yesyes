@@ -46,10 +46,13 @@
 ?>
 
 <?php if (isset($_POST['proses'])) {
-    mysqli_query(connection(), "UPDATE t_pinjam SET nama = '$_POST[nama]', keperluan='$_POST[keperluan]', telp='$_POST[telp]', id_ruangan='$_POST[ruanganUpd]', tanggal='$_POST[tanggalUpd]', waktu='$_POST[waktuUpd]', status='$_POST[statusUpd]' WHERE id_pinjam=$_GET[id_pinjam]");
+    mysqli_query(connection(), "UPDATE t_pinjam SET nama = '$_POST[namaUpd]', keperluan='$_POST[keperluanUpd]', telp='$_POST[telpUpd]', id_ruangan='$_POST[ruanganUpd]', tanggal='$_POST[tanggalUpd]', waktu='$_POST[waktuUpd]', status='$_POST[statusUpd]' WHERE id_pinjam=$_GET[id_pinjam]");
+
+    // echo"<script>alert('Data berhasil dikonfirmasi'); window.location='status.php';</script>";
+    echo"<script>window.location='status.php';</script>";
 }?>
 
-
+<script>window.location</script>
 <html lang="en">
 
 <head>
@@ -104,13 +107,13 @@
                 <form role="form" action="" enctype="multipart/form-data" method="POST">
                     <div class="inputCont">
                         <label class="labnam" for="nama">Nama :</label>
-                        <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama']; ?>" disabled>
+                        <input class="box innam" type="text" name="namaUpd" id="nama" value="<?= $data['nama']; ?> " readonly>
 
                         <label class="labkep" for="keperluan">Keperluan :</label>
-                        <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php echo $data['keperluan']; ?>" disabled>
+                        <input class="box inkep" type="text" name="keperluanUpd" id="keperluan" value="<?= $data['keperluan']; ?>" readonly>
 
                         <label class="labtel" for="telp">Nomor Telepon :</label>
-                        <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp']; ?>" disabled>
+                        <input class="box intel" type="text" name="telpUpd" id="telp" value="<?= $data['telp']; ?>" readonly>
 
                         <label class="labru" for="ruanganUpd">Ruangan :</label>
                         <select class="box inru" id="ruanganUpd" name="ruanganUpd" size="1">
@@ -131,7 +134,7 @@
                         <input class="box1 intan" type="date" name="tanggalUpd" id="tanggalUpd" name="tanggalUpd" value="<?= $data['tanggal']; ?>">
 
                         <label class="labwa" for="Upd">Waktu :</label>
-                        <input class="box2 inwa" type="time" name="Upd" id="Upd" value="<?= $data['waktu']; ?>">
+                        <input class="box2 inwa" type="time" name="waktuUpd" id="Upd" value="<?= $data['waktu']; ?>">
 
                         <label class="labsta" for="statusUpd">Status :</label>
                         <select class="box insta" id="statusUpd" name="statusUpd" size="1">

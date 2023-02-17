@@ -46,7 +46,7 @@
     </section>
 
     <section class="main">
-        <div class="title">Form Ajuan Peminjaman Ruang Rapat</div>
+        <div class="title">Agenda Ajuan Peminjaman Ruang Rapat</div>
 
         <div class="tabel">
             <table style="width: 90%;">
