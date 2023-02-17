@@ -1,7 +1,7 @@
 <?php
   //memanggil file conn.php yang berisi koneski ke database
   //dengan include, semua kode dalam file conn.php dapat digunakan pada file index.php
-  include ('index_files/conndb3.php');
+  include ('./index_files/conndb3.php');
 
   $status = '';
   $result = '';
@@ -31,14 +31,14 @@
       //eksekusi query
       $result = mysqli_query(connection(), $sql);
       if ($result) {
-        $status = 'ok';
+        $status = 'Data berhasil dirubah';
       }
       else{
-        $status = 'err';
+        $status = 'error';
       }
 
       //redirect ke halaman lain
-      header('Location: status.php');
+      header('Location: konf_agendaruangan.php');
   }
 ?>
 
