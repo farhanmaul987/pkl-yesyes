@@ -81,7 +81,7 @@
                         <td class="qe"><?php echo $no++; ?></td>
                         <td><?php echo $d['nama']; ?></td>
                         <td><?php echo $d['telp']; ?></td>
-                        <td><?php echo $d['id_ruangan']; ?></td>
+                        <td><?php echo $d['n_ruangan']; ?></td>
                         <td><?php echo $d['keperluan']; ?></td>
                         <td><?php echo $d['tanggal']; ?></td>
                         <td><?php echo $d['waktu']; ?></td>
