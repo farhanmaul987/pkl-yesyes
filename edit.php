@@ -16,30 +16,71 @@
           $result = mysqli_query(connection(), $query);
       }
   }
-  //melakukan pengecekan apakah ada form yang dipost
+//   melakukan pengecekan apakah ada form yang dipost
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $id_pinjam = $_POST['id_pinjam'];
-      $nama = $_POST['nama'];
-      $keperluan  = $_POST['keperluan'];
-      $telp  = $_POST['telp'];
-      $id_ruanganUpd  = $_POST['id_ruangan'];
-      $tanggalUpd  = $_POST['tanggal'];
-      $waktuUpd  = $_POST['waktu'];
-      //query SQL
-      $sql = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$id_ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd' WHERE id_pinjam='$id_pinjam'";
+        $id_pinjam = $_POST['id_pinjam'];
+        // $id_ruangan = $_POST['id_ruangan'];
 
-      //eksekusi query
-      $result = mysqli_query(connection(), $sql);
-      if ($result) {
-        $status = 'ok';
-      }
-      else{
-        $status = 'err';
-      }
+        $nama = $_POST['nama'];
+        $keperluan  = $_POST['keperluan'];
+        $telp  = $_POST['telp'];
+        $id_ruanganUpd  = $_POST['id_ruangan'];
+        $tanggalUpd  = $_POST['tanggal'];
+        $waktuUpd  = $_POST['waktu'];
+        //query SQL
+        $sql = "UPDATE t_pinjam 
+                 SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$id_ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd' 
+                 WHERE id_pinjam='$id_pinjam'";
+        $result = mysqli_query(connection(), $sql);
+    // if (isset($_POST['update'])) {
+    //     // $sql = "UPDATE t_pinjam 
+    //     //         INNER JOIN t_ruangan 
+    //     //         ON t_pinjam.id_ruangan = t_ruangan.id_ruangan 
+    //     //         SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$id_ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd' 
+    //     //         WHERE id_pinjam='$id_pinjam' and id_ruangan='$id_ruanganUpd'";
+  
+    //     //eksekusi query
+    //     if ($result) {
+    //       $status = 'ok';
+    //     }
+    //     else{
+    //       $status = 'err';
+    //     }
+    // }
 
       //redirect ke halaman lain
-      header('Location: status.php');
+      echo"<script>window.location='status.php';</script>";
   }
+    // if (isset($_POST['update'])) {
+    //     $id_pinjam = $_POST['id_pinjam'];
+    //     $id_ruangan= $_POST['id_ruangan'];
+
+    //     $nama	            = ($_POST['nama']);
+    //     $keperluan		    = ($_POST['keperluan']);
+    //     $telp		        = ($_POST['telp']);
+    //     $ruangan            = ($_POST['ruangan']);
+    //     $tanggal            = ($_POST['tanggal']);
+    //     $waktu              = ($_POST['waktu']);
+
+    //     $query  = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$ruangan', tanggal='$tanggal', waktu='$waktu' WHERE id_pinjam='$id_pinjam' and id_ruangan = '$id_ruangan'";
+        
+    //     $result  = mysqli_query(connection(), $query) or die('Error, update query failed');
+
+    //     header('Loacation : status.php');
+    // }
+?>
+
+<?php
+//   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+//       if (isset($_GET['id_pinjam'])) {
+//           //query SQL
+//           $id_pinjam = $_GET['id_pinjam'];
+//           $query = "SELECT * FROM t_pinjam WHERE id_pinjam = '$id_pinjam'";
+
+//           //eksekusi query
+//           $result = mysqli_query(connection(), $query) or die('Error');
+//       }
+//   }
 ?>
 
 <html lang="en">
@@ -93,7 +134,7 @@
         <div class="forms">
         <?php while($data = mysqli_fetch_array($result)): ?>
             <?php date_default_timezone_set('Asia/Jakarta');?>
-            <form role="form" action="edit.php" enctype="multipart/form-data" method="POST">
+            <form role="form" action=" " enctype="multipart/form-data" method="POST">
                 <div class="inputCont">
                     <label class="labnam" for="nama">Nama :</label>
                     <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama'];?>" readonly>
@@ -105,7 +146,7 @@
                     <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>" readonly>
 
                     <label class="labru" for="ruangan">Ruangan :</label>
-                    <select class="box inru" id="ruangan" name="ruangan" size="1">
+                    <select class="box inru" id="ruangan" name="id_ruangan" size="1">
                         <option value="<?php echo $data['id_ruangan'];?>" selected><?php echo $data['id_ruangan'];?></option>
                         <?php 
                             $query  = "SELECT * FROM t_ruangan";
@@ -124,9 +165,9 @@
                     <input class="box1 intan" type="date" name="tanggal" id="tanggal" name="tanggal" value="<?= $data['tanggal'];?>">
 
                     <label class="labwa" for="waktu">Waktu :</label>
-                    <input class="box2 inwa" type="text" name="waktu" id="waktu" value="<?= $data['waktu'];?>">
+                    <input class="box2 inwa" type="time" name="waktu" id="waktuUpd" value="<?= $data['waktu'];?>">
 
-                    <input class="button" type="submit" value="Kumpulkan" name="submit" />
+                    <input class="button" type="submit" value="Kumpulkan" name="update" />
                 </div>
             </form>
             <?php endwhile; ?>

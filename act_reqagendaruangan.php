@@ -19,9 +19,9 @@ require_once('./index_files/conndb3.php');
             $result = mysqli_query(connection(), $query);
     
             if ($result) {
-                $sukses = "Sukses memasukan data!!";
+                echo"<script>alert('Data berhasil ditambahkan'); window.location='status.php';</script>";
             } else {
-                $eror	= "Gagal masukkan data!!";
+                echo"<script>alert('Data gagal ditambahkan'); window.location='add_agendaruangan.php.php';</script>";
             }
         }
     } // END CREATE LOGIC
