@@ -1,7 +1,7 @@
 <?php
   //memanggil file conn.php yang berisi koneski ke database
   //dengan include, semua kode dalam file conn.php dapat digunakan pada file index.php
-  include ('index_files/conndb3.php');
+  include ('./index_files/conndb3.php');
 
   $status = '';
   $result = '';
@@ -19,23 +19,22 @@
 //   melakukan pengecekan apakah ada form yang dipost
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_pinjam = $_POST['id_pinjam'];
-    // $id_ruangan = $_POST['id_ruangan'];
-
     $nama = $_POST['nama'];
     $keperluan  = $_POST['keperluan'];
     $telp  = $_POST['telp'];
     $id_ruanganUpd  = $_POST['id_ruangan'];
     $tanggalUpd  = $_POST['tanggal'];
     $waktuUpd  = $_POST['waktu'];
-        //query SQL
+    //query SQL
     $sql = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$id_ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd' WHERE id_pinjam='$id_pinjam'";
+
+    //eksekusi query
     $result = mysqli_query(connection(), $sql);
-    
     if ($result) {
-      $status = 'ok';
+      $status = 'Data berhasil dirubah';
     }
     else{
-      $status = 'err';
+      $status = 'error';
     }
 
       //redirect ke halaman lain
@@ -99,13 +98,13 @@
             <form role="form" action=" " enctype="multipart/form-data" method="POST">
                 <div class="inputCont">
                     <label class="labnam" for="nama">Nama :</label>
-                    <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama'];?>" readonly>
+                    <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama'];?>" disabled>
 
                     <label class="labkep" for="keperluan">Keperluan :</label>
-                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php echo $data['keperluan'];?>" readonly>
+                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php echo $data['keperluan'];?>" disabled>
 
                     <label class="labtel" for="telp">Nomor Telepon :</label>
-                    <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>" readonly>
+                    <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>" disabled>
 
                     <label class="labru" for="ruangan">Ruangan :</label>
                     <select class="box inru" id="ruangan" name="id_ruangan" size="1">
@@ -121,13 +120,12 @@
                                 </option>
                         <?php };?>
                     </select>
-                    <!--<input class="box inru" type="text" name="ruang" id="ruang">-->
 
                     <label class="labtan" for="tanggal">Tanggal :</label>
                     <input class="box1 intan" type="date" name="tanggal" id="tanggal" name="tanggal" value="<?= $data['tanggal'];?>">
 
                     <label class="labwa" for="waktu">Waktu :</label>
-                    <input class="box2 inwa" type="time" name="waktu" id="waktuUpd" value="<?= $data['waktu'];?>">
+                    <input class="box2 inwa" type="text" name="waktu" id="waktu" value="<?= $data['waktu'];?>">
 
                     <input class="button" type="submit" value="Kumpulkan" name="update" />
                 </div>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2023 at 03:34 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Waktu pembuatan: 17 Feb 2023 pada 08.11
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_pinjam`
+-- Struktur dari tabel `t_pinjam`
 --
 
 CREATE TABLE `t_pinjam` (
@@ -34,21 +34,23 @@ CREATE TABLE `t_pinjam` (
   `telp` bigint(20) NOT NULL,
   `id_ruangan` int(11) NOT NULL,
   `tanggal` date NOT NULL,
-  `waktu` time NOT NULL
+  `waktu` time NOT NULL,
+  `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `t_pinjam`
+-- Dumping data untuk tabel `t_pinjam`
 --
 
-INSERT INTO `t_pinjam` (`id_pinjam`, `nama`, `keperluan`, `telp`, `id_ruangan`, `tanggal`, `waktu`) VALUES
-(1, 'asd', 'asd', 213, 1, '2023-02-14', '00:00:00'),
-(2, 'asdasd', 'asdasd', 1231231, 2, '2023-02-14', '15:17:00');
+INSERT INTO `t_pinjam` (`id_pinjam`, `nama`, `keperluan`, `telp`, `id_ruangan`, `tanggal`, `waktu`, `status`) VALUES
+(9, 'Akmal Aliffandhi Anwar', 'Rapat', 696969, 3, '2023-02-17', '14:04:00', 'Pending'),
+(10, 'Haidarr', 'ngewe', 214, 2, '2023-02-17', '14:06:00', 'Pending'),
+(11, 'Farhan Ngentot', 'ngewe', 696969, 3, '2023-02-17', '14:06:00', 'Pending');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_ruangan`
+-- Struktur dari tabel `t_ruangan`
 --
 
 CREATE TABLE `t_ruangan` (
@@ -57,7 +59,7 @@ CREATE TABLE `t_ruangan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `t_ruangan`
+-- Dumping data untuk tabel `t_ruangan`
 --
 
 INSERT INTO `t_ruangan` (`id_ruangan`, `n_ruangan`) VALUES
@@ -72,40 +74,40 @@ INSERT INTO `t_ruangan` (`id_ruangan`, `n_ruangan`) VALUES
 --
 
 --
--- Indexes for table `t_pinjam`
+-- Indeks untuk tabel `t_pinjam`
 --
 ALTER TABLE `t_pinjam`
   ADD PRIMARY KEY (`id_pinjam`,`id_ruangan`),
   ADD KEY `fk_t_pinjam_t_ruangan_idx` (`id_ruangan`);
 
 --
--- Indexes for table `t_ruangan`
+-- Indeks untuk tabel `t_ruangan`
 --
 ALTER TABLE `t_ruangan`
   ADD PRIMARY KEY (`id_ruangan`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `t_pinjam`
+-- AUTO_INCREMENT untuk tabel `t_pinjam`
 --
 ALTER TABLE `t_pinjam`
-  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `t_ruangan`
+-- AUTO_INCREMENT untuk tabel `t_ruangan`
 --
 ALTER TABLE `t_ruangan`
   MODIFY `id_ruangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `t_pinjam`
+-- Ketidakleluasaan untuk tabel `t_pinjam`
 --
 ALTER TABLE `t_pinjam`
   ADD CONSTRAINT `fk_t_pinjam_t_ruangan` FOREIGN KEY (`id_ruangan`) REFERENCES `t_ruangan` (`id_ruangan`) ON DELETE NO ACTION ON UPDATE NO ACTION;
