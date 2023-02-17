@@ -118,7 +118,6 @@
                                 </option>
                         <?php };?>
                     </select>
-                    <!--<input class="box inru" type="text" name="ruang" id="ruang">-->
 
                     <label class="labtan" for="tanggal">Tanggal :</label>
                     <input class="box1 intan" type="date" name="tanggal" id="tanggal" name="tanggal" value="<?= $data['tanggal'];?>">

@@ -83,6 +83,8 @@
                     <label class="labwa" for="waktu">Waktu :</label>
                     <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?= date('H:i');?>" autofocus>
 
+                    <input type="hidden" id="status" name="status" value="Pending">
+
                     <input class="button" type="submit" value="Kumpulkan" name="submit" />
                 </div>
             </form>

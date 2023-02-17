@@ -65,7 +65,17 @@
                 $no = 1;
                 $query = mysqli_query(connection(), 'SELECT * FROM t_pinjam');
                 while ($d = mysqli_fetch_array($query)) {
+                    if ($d['status'] == "Pending"){
+                        $color = "style= 'background-color: #FFBCD1'";
+                    }
+                    else if ($d['status'] == "Diterima"){
+                        $color = "style= 'background-color: #00e00b'";
+                    }
+                    else if ($d['status'] == "Ditolak"){
+                        $color = "style= 'background-color: #ff0000'";
+                    }
                 ?>
+
 
                     <tr class="">
                         <td class="qe"><?php echo $no++; ?></td>
@@ -75,7 +85,7 @@
                         <td><?php echo $d['keperluan']; ?></td>
                         <td><?php echo $d['tanggal']; ?></td>
                         <td><?php echo $d['waktu']; ?></td>
-                        <td class="diterima">Diterima</td>
+                        <td <?php echo $color?>><?php echo $d['status'];?></td>
                     </tr>
 
                 <?php
