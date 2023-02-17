@@ -270,3 +270,7 @@ td a .accept{
 td a .decline{
     color: red;
 }
+
+td.icon{
+    padding: 13px 0px 13px 5px;
+}

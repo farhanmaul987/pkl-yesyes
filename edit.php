@@ -129,7 +129,7 @@
                     <select class="box insta" id="status" name="status" size="1">
                         <option value="Pending" selected>Pending</option>
                         <option value="Diterima">Diterima</option>
-                        <option value="Diterima">Diterima</option>
+                        <option value="Ditolak">Ditolak</option>
                     </select>
 
                     <input class="button" type="submit" value="Kumpulkan" name="submit" />
