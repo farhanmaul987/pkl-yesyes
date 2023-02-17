@@ -38,7 +38,7 @@
       }
 
       //redirect ke halaman lain
-      header('Location: status.php');
+      header('Location: konf_agendaruangan.php');
   }
 ?>
 
@@ -96,17 +96,17 @@
             <form role="form" action="edit.php" enctype="multipart/form-data" method="POST">
                 <div class="inputCont">
                     <label class="labnam" for="nama">Nama :</label>
-                    <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama'];?>">
+                    <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama'];?>" disabled>
 
                     <label class="labkep" for="keperluan">Keperluan :</label>
-                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php echo $data['keperluan'];?>">
+                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php echo $data['keperluan'];?>" disabled>
 
                     <label class="labtel" for="telp">Nomor Telepon :</label>
-                    <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>">
+                    <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>" disabled>
 
                     <label class="labru" for="ruangan">Ruangan :</label>
-                    <select class="box inru" id="ruangan" name="ruangan" size="1">
-                        <option value="-" selected>-</option>
+                    <select class="box inru" id="ruangan" name="ruangan" size="1" data-component="dropdown" autofocus>
+                        <option value="<?php echo $data['id_ruangan'];?>" selected></option>
                         <?php 
                             $query  = "SELECT * FROM t_ruangan";
                             $result = mysqli_query(connection(), $query);
@@ -121,10 +121,10 @@
                     <!--<input class="box inru" type="text" name="ruang" id="ruang">-->
 
                     <label class="labtan" for="tanggal">Tanggal :</label>
-                    <input class="box1 intan" type="text" name="tanggal" id="tanggal" value="<?= $data['tanggal'];?>" autofocus>
+                    <input class="box1 intan" type="date" name="tanggal" id="tanggal" value="<?php echo $data['tanggalUpd'];  ?>">
 
                     <label class="labwa" for="waktu">Waktu :</label>
-                    <input class="box2 inwa" type="text" name="waktu" id="waktu" value="<?= $data['waktu'];?>" autofocus>
+                    <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?php echo $data['waktu'];  ?>">
 
                     <input class="button" type="submit" value="Kumpulkan" name="submit" />
                 </div>
