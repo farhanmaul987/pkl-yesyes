@@ -18,70 +18,32 @@
   }
 //   melakukan pengecekan apakah ada form yang dipost
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $id_pinjam = $_POST['id_pinjam'];
-        // $id_ruangan = $_POST['id_ruangan'];
+    $id_pinjam = $_POST['id_pinjam'];
+    // $id_ruangan = $_POST['id_ruangan'];
 
-        $nama = $_POST['nama'];
-        $keperluan  = $_POST['keperluan'];
-        $telp  = $_POST['telp'];
-        $id_ruanganUpd  = $_POST['id_ruangan'];
-        $tanggalUpd  = $_POST['tanggal'];
-        $waktuUpd  = $_POST['waktu'];
+    $nama = $_POST['nama'];
+    $keperluan  = $_POST['keperluan'];
+    $telp  = $_POST['telp'];
+    $id_ruanganUpd  = $_POST['id_ruangan'];
+    $tanggalUpd  = $_POST['tanggal'];
+    $waktuUpd  = $_POST['waktu'];
         //query SQL
-        $sql = "UPDATE t_pinjam 
-                 SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$id_ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd' 
-                 WHERE id_pinjam='$id_pinjam'";
-        $result = mysqli_query(connection(), $sql);
-    // if (isset($_POST['update'])) {
-    //     // $sql = "UPDATE t_pinjam 
-    //     //         INNER JOIN t_ruangan 
-    //     //         ON t_pinjam.id_ruangan = t_ruangan.id_ruangan 
-    //     //         SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$id_ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd' 
-    //     //         WHERE id_pinjam='$id_pinjam' and id_ruangan='$id_ruanganUpd'";
-  
-    //     //eksekusi query
-    //     if ($result) {
-    //       $status = 'ok';
-    //     }
-    //     else{
-    //       $status = 'err';
-    //     }
-    // }
+    $sql = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$id_ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd' WHERE id_pinjam='$id_pinjam'";
+    $result = mysqli_query(connection(), $sql);
+    
+    if ($result) {
+      $status = 'ok';
+    }
+    else{
+      $status = 'err';
+    }
 
       //redirect ke halaman lain
       echo"<script>window.location='status.php';</script>";
   }
-    // if (isset($_POST['update'])) {
-    //     $id_pinjam = $_POST['id_pinjam'];
-    //     $id_ruangan= $_POST['id_ruangan'];
 
-    //     $nama	            = ($_POST['nama']);
-    //     $keperluan		    = ($_POST['keperluan']);
-    //     $telp		        = ($_POST['telp']);
-    //     $ruangan            = ($_POST['ruangan']);
-    //     $tanggal            = ($_POST['tanggal']);
-    //     $waktu              = ($_POST['waktu']);
-
-    //     $query  = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$ruangan', tanggal='$tanggal', waktu='$waktu' WHERE id_pinjam='$id_pinjam' and id_ruangan = '$id_ruangan'";
-        
-    //     $result  = mysqli_query(connection(), $query) or die('Error, update query failed');
-
-    //     header('Loacation : status.php');
-    // }
 ?>
 
-<?php
-//   if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//       if (isset($_GET['id_pinjam'])) {
-//           //query SQL
-//           $id_pinjam = $_GET['id_pinjam'];
-//           $query = "SELECT * FROM t_pinjam WHERE id_pinjam = '$id_pinjam'";
-
-//           //eksekusi query
-//           $result = mysqli_query(connection(), $query) or die('Error');
-//       }
-//   }
-?>
 
 <html lang="en">
 
