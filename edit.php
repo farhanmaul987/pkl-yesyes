@@ -96,13 +96,13 @@
             <form role="form" action="edit.php" enctype="multipart/form-data" method="POST">
                 <div class="inputCont">
                     <label class="labnam" for="nama">Nama :</label>
-                    <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama'];?>">
+                    <input class="box innam" type="text" name="nama" id="nama" value="<?php echo $data['nama'];?>" readonly>
 
                     <label class="labkep" for="keperluan">Keperluan :</label>
-                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php echo $data['keperluan'];?>">
+                    <input class="box inkep" type="text" name="keperluan" id="keperluan" value="<?php echo $data['keperluan'];?>" readonly>
 
                     <label class="labtel" for="telp">Nomor Telepon :</label>
-                    <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>">
+                    <input class="box intel" type="text" name="telp" id="telp" value="<?php echo $data['telp'];?>" readonly>
 
                     <label class="labru" for="ruangan">Ruangan :</label>
                     <select class="box inru" id="ruangan" name="ruangan" size="1">
