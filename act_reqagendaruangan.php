@@ -27,5 +27,3 @@ require_once('./index_files/conndb3.php');
         }
         header('Location: status.php?status='.$status);
     } // END CREATE LOGIC
-
-?>
