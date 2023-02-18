@@ -1,45 +1,4 @@
 <?php
-// //memanggil file conn.php yang berisi koneski ke database
-// //dengan include, semua kode dalam file conn.php dapat digunakan pada file index.php
-// require_once('index_files/conndb3.php');
-
-// $status = '';
-// $result = '';
-// //melakukan pengecekan apakah ada variable GET yang dikirim
-// if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//     if (isset($_GET['id_pinjam'])) {
-//         //query SQL
-//         $id_pinjamUpd = $_GET['id_pinjam'];
-//         $query = "SELECT * FROM t_pinjam WHERE id_pinjam = '$id_pinjamUpd'";
-
-//         //eksekusi query
-//         $result = mysqli_query(connection(), $query);
-//     }
-// }
-// //   melakukan pengecekan apakah ada form yang dipost
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $id_pinjam = $_POST['id_pinjam'];
-//     $nama = $_POST['nama'];
-//     $keperluan  = $_POST['keperluan'];
-//     $telp  = $_POST['telp'];
-//     $ruanganUpd  = $_POST['id_ruangan'];
-//     $tanggalUpd  = $_POST['tanggal'];
-//     $statusUpd  = $_POST['status'];
-//     //query SQL
-//     $sql = "UPDATE t_pinjam SET nama='$nama', keperluan='$keperluan', telp='$telp', id_ruangan='$ruanganUpd', tanggal='$tanggalUpd', waktu='$waktuUpd', status='$statusUpd' WHERE id_pinjam='$id_pinjam'";
-
-//     //eksekusi query
-//     $result = mysqli_query(connection(), $sql);
-//     if ($result) {
-//         $status = 'Data berhasil dirubah';
-//     } else {
-//         $status = 'error';
-//     }
-
-//     //redirect ke halaman lain
-//     // header('Location: status.php');
-// }
-
     include('./index_files/conndb3.php');
 
     $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE t_pinjam.id_ruangan = t_ruangan.id_ruangan and id_pinjam = '$_GET[id_pinjam]'");

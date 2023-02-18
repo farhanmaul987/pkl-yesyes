@@ -63,7 +63,7 @@
 
                 <?php
                 $no = 1;
-                $query = mysqli_query(connection(), 'SELECT t_pinjam.nama, t_pinjam.telp, t_ruangan.n_ruangan, t_pinjam.keperluan, t_pinjam.tanggal, t_pinjam.waktu, t_pinjam.status FROM t_pinjam INNER JOIN t_ruangan ON t_pinjam.id_ruangan = t_ruangan.id_ruangan;');
+                $query = mysqli_query(connection(), 'SELECT t_pinjam.nama, t_pinjam.telp, t_ruangan.n_ruangan, t_pinjam.keperluan, t_pinjam.tanggal, t_pinjam.waktu, t_pinjam.status FROM t_pinjam INNER JOIN t_ruangan ON t_pinjam.id_ruangan = t_ruangan.id_ruangan ORDER BY t_pinjam.id_pinjam DESC ;');
                 while ($d = mysqli_fetch_array($query)) {
                     if ($d['status'] == "Pending"){
                         $color = "style= 'background-color: #FFBCD1'";
