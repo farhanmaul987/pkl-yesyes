@@ -107,13 +107,13 @@
                 <form role="form" action="" enctype="multipart/form-data" method="POST">
                     <div class="inputCont">
                         <label class="labnam" for="nama">Nama :</label>
-                        <input class="box innam" type="text" name="namaUpd" id="nama" value="<?= $data['nama']; ?> " readonly>
+                        <input class="box innam" type="text" name="namaUpd" id="nama" value="<?= $data['nama']; ?> " disabled>
 
                         <label class="labkep" for="keperluan">Keperluan :</label>
-                        <input class="box inkep" type="text" name="keperluanUpd" id="keperluan" value="<?= $data['keperluan']; ?>" readonly>
+                        <input class="box inkep" type="text" name="keperluanUpd" id="keperluan" value="<?= $data['keperluan']; ?>" disabled>
 
                         <label class="labtel" for="telp">Nomor Telepon :</label>
-                        <input class="box intel" type="text" name="telpUpd" id="telp" value="<?= $data['telp']; ?>" readonly>
+                        <input class="box intel" type="text" name="telpUpd" id="telp" value="<?= $data['telp']; ?>" disabled>
 
                         <label class="labru" for="ruanganUpd">Ruangan :</label>
                         <select class="box inru" id="ruanganUpd" name="ruanganUpd" size="1">
