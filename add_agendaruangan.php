@@ -26,6 +26,14 @@
                 <a href="./status.php">
                     <li>Status Ajuan</li>
                 </a>
+                <li class="drop-btn">Dropdown</li>
+                <div class="drop">
+                    <a href=""><li>Ruangan 1</li></a>
+                    <a href=""><li>Ruangan 2</li></a>
+                    <a href=""><li>Ruangan 3</li></a>
+                    <a href=""><li>Ruangan 4</li></a>
+                    <a href=""><li>Ruangan 5</li></a>
+                </div>
             </ul>
         </div>
 
@@ -83,7 +91,18 @@
                     <label class="labwa" for="waktu">Waktu :</label>
                     <input class="box2 inwa" type="time" name="waktu" id="waktu" value="<?= date('H:i'); ?>" required autofocus>
 
-                    <input type="hidden" id="status" name="status" value="Pending">
+                    <label class="labsar" for="sarana">Sarana :</label>
+                    <button class="kep-btn insar">asw</button>
+
+                    <div class="mdl-cont">
+                        <div class="mdl-sar">
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="status" name="status" value="Pending"> 
 
                     <input class="button1" type="submit" value="Kumpulkan" name="submit" />
                 </div>
@@ -98,6 +117,7 @@
         </div>
     </section>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

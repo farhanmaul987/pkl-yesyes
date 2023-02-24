@@ -38,6 +38,14 @@
                 <a href="./status.php">
                     <li>Status Ajuan</li>
                 </a>
+                <li class="drop-btn">Dropdown</li>
+                <div class="drop">
+                    <a href=""><li>Ruangan 1</li></a>
+                    <a href=""><li>Ruangan 2</li></a>
+                    <a href=""><li>Ruangan 3</li></a>
+                    <a href=""><li>Ruangan 4</li></a>
+                    <a href=""><li>Ruangan 5</li></a>
+                </div>
             </ul>
         </div>
 
@@ -115,6 +123,8 @@
             </div>
         </div>
     </section>
+
+    <script src="script.js"></script>
 
 </body>
 
