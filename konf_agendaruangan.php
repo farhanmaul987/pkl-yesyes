@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./assets/BPK-Logo.png" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://kalenderindonesia.com/api/j8aUX5uv7sar/kalender/masehi/2023">
     <title>SIPERU</title>
 </head>
 

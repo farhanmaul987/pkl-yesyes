@@ -87,7 +87,7 @@
                         <td><?php echo $d['waktu']; ?></td>
                         <td <?php echo $color?>><?php echo $d['status'];?></td>
                     </tr>
-
+                    
                 <?php
                 }
                 ?>
