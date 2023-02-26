@@ -27,7 +27,10 @@
                 <a href="./status.php">
                     <li>Status Ajuan</li>
                 </a>
-                <li class="drop-btn">Dropdown</li>
+                <li class="drop-btn">
+                    <p>Dropdown</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 15.4l-6-6L7.4 8l4.6 4.6L16.6 8L18 9.4l-6 6Z"/></svg>
+                </li>
                 <div class="drop">
                     <a href=""><li>Ruangan 1</li></a>
                     <a href=""><li>Ruangan 2</li></a>
@@ -50,6 +53,7 @@
                 <a href="./status.php">
                     <li>Status Ajuan</li>
                 </a>
+                
             </ul>
         </div>
     </section>
@@ -67,13 +71,23 @@
                     <th>Keperluan</th>
                     <th>Tanggal</th>
                     <th>Waktu</th>
-                    <th colspan="3" style="text-align:center">Action</th>
+                    <th>Status</th>
+                    <th colspan="" style="text-align:center">Action</th>
                 </tr>
 
                 <?php
                 $no = 1;
                 $query = mysqli_query(connection(), 'SELECT * FROM t_pinjam INNER JOIN t_ruangan ON t_pinjam.id_ruangan = t_ruangan.id_ruangan ORDER BY t_pinjam.id_pinjam DESC ;');
                 while ($d = mysqli_fetch_array($query)) {
+                    if ($d['status'] == "Pending"){
+                        $color = "style= 'background-color: #FFBCD1'";
+                    }
+                    else if ($d['status'] == "Diterima"){
+                        $color = "style= 'background-color: #00e00b'";
+                    }
+                    else if ($d['status'] == "Ditolak"){
+                        $color = "style= 'background-color: #ff0000'";
+                    }
                 ?>
 
                     <tr class="">
@@ -84,12 +98,15 @@
                         <td><?php echo $d['keperluan']; ?></td>
                         <td><?php echo $d['tanggal']; ?></td>
                         <td><?php echo $d['waktu']; ?></td>
-
-                        <td class="icon"><a href="<?php echo "edit.php?id_pinjam=" . $d['id_pinjam']; ?>"><iconify-icon class="edit" icon="mdi:pencil-box" width="25" height="25"></iconify-icon></a></td>
+                        <td <?php echo $color?>><?php echo $d['status'];?></td>
+                        <td class="icon">
+                            <a href="<?php echo "edit.php?id_pinjam=" . $d['id_pinjam']; ?>"><iconify-icon class="edit" icon="mdi:pencil-box" width="25" height="25"></iconify-icon></a>
+                            <a href="<?php echo "act_hapusagendaruangan.php?id_pinjam=" . $d['id_pinjam']; ?>"><iconify-icon class="decline" icon="mdi:close-box" width="25" height="25" onclick="return confirm('Yakin akan menghapus data ?')"></iconify-icon></a>
+                        </td>
 
                         <!-- <td class="icon"><a href=""><iconify-icon class="accept" icon="material-symbols:check-box-rounded" width="25" height="25"></iconify-icon></a></td> -->
 
-                        <td class="icon"><a href="<?php echo "act_hapusagendaruangan.php?id_pinjam=" . $d['id_pinjam']; ?>"><iconify-icon class="decline" icon="mdi:close-box" width="25" height="25" onclick="return confirm('Yakin akan menghapus data ?')"></iconify-icon></a></td>
+                        
                     </tr>
 
                 <?php
