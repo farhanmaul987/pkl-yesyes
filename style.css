@@ -92,7 +92,7 @@ a {
 .inputCont {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: repeat(13, 20%);
+    grid-template-rows: repeat(13, 19%);
     gap: 3px 20px;
     padding: 0px 25px;
 }
@@ -228,7 +228,7 @@ select {
     background-color: #d5a016;
     border: 0px;
     grid-column: 2/4;
-    grid-row: 13/14;
+    grid-row: 12/13;
 }
 
 .button:hover {
