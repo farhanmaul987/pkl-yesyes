@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Feb 2023 pada 08.11
+-- Waktu pembuatan: 01 Mar 2023 pada 11.32
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `t_barang`
+--
+
+CREATE TABLE `t_barang` (
+  `id_barang` int(11) NOT NULL,
+  `n_barang` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `t_barang`
+--
+
+INSERT INTO `t_barang` (`id_barang`, `n_barang`) VALUES
+(1, 'TV'),
+(2, 'Printer'),
+(3, 'Projector');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `t_pinjam`
 --
 
@@ -35,6 +55,7 @@ CREATE TABLE `t_pinjam` (
   `id_ruangan` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `waktu` time NOT NULL,
+  `tambahan` text NOT NULL,
   `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,10 +63,33 @@ CREATE TABLE `t_pinjam` (
 -- Dumping data untuk tabel `t_pinjam`
 --
 
-INSERT INTO `t_pinjam` (`id_pinjam`, `nama`, `keperluan`, `telp`, `id_ruangan`, `tanggal`, `waktu`, `status`) VALUES
-(9, 'Akmal Aliffandhi Anwar', 'Rapat', 696969, 3, '2023-02-17', '14:04:00', 'Pending'),
-(10, 'Haidarr', 'ngewe', 214, 2, '2023-02-17', '14:06:00', 'Pending'),
-(11, 'Farhan Ngentot', 'ngewe', 696969, 3, '2023-02-17', '14:06:00', 'Pending');
+INSERT INTO `t_pinjam` (`id_pinjam`, `nama`, `keperluan`, `telp`, `id_ruangan`, `tanggal`, `waktu`, `tambahan`, `status`) VALUES
+(96, 'aka', 'aka', 1, 1, '2023-03-01', '15:02:00', 'tes1111', 'Pending'),
+(97, 'akmal tampan', 'kgn dia yg di sana :(', 1234556, 2, '2023-03-01', '16:33:00', 'tambahan akmal ganteng adalah akmal pemberani', 'Pending');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `t_pinjambarang`
+--
+
+CREATE TABLE `t_pinjambarang` (
+  `id_pinjamBarang` int(11) NOT NULL,
+  `id_pinjam` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `t_pinjambarang`
+--
+
+INSERT INTO `t_pinjambarang` (`id_pinjamBarang`, `id_pinjam`, `id_barang`, `jumlah`, `keterangan`) VALUES
+(38, 96, 1, 1, 'tv'),
+(39, 96, 3, 3, 'projector'),
+(40, 97, 1, 11, 'tv'),
+(41, 97, 3, 33, 'projector');
 
 -- --------------------------------------------------------
 
@@ -74,11 +118,25 @@ INSERT INTO `t_ruangan` (`id_ruangan`, `n_ruangan`) VALUES
 --
 
 --
+-- Indeks untuk tabel `t_barang`
+--
+ALTER TABLE `t_barang`
+  ADD PRIMARY KEY (`id_barang`);
+
+--
 -- Indeks untuk tabel `t_pinjam`
 --
 ALTER TABLE `t_pinjam`
   ADD PRIMARY KEY (`id_pinjam`,`id_ruangan`),
-  ADD KEY `fk_t_pinjam_t_ruangan_idx` (`id_ruangan`);
+  ADD KEY `fk_t_pinjam_t_ruangan_idx` (`id_ruangan`),
+  ADD KEY `id_ruangan` (`id_ruangan`);
+
+--
+-- Indeks untuk tabel `t_pinjambarang`
+--
+ALTER TABLE `t_pinjambarang`
+  ADD PRIMARY KEY (`id_pinjamBarang`),
+  ADD KEY `id_pinjam` (`id_pinjam`);
 
 --
 -- Indeks untuk tabel `t_ruangan`
@@ -91,10 +149,22 @@ ALTER TABLE `t_ruangan`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `t_barang`
+--
+ALTER TABLE `t_barang`
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `t_pinjam`
 --
 ALTER TABLE `t_pinjam`
-  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+
+--
+-- AUTO_INCREMENT untuk tabel `t_pinjambarang`
+--
+ALTER TABLE `t_pinjambarang`
+  MODIFY `id_pinjamBarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_ruangan`
