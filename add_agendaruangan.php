@@ -76,6 +76,12 @@
                     <select class="inru" id="ruangan" name="ruangan" size="1" required>
                         <option value="-" selected>-</option>
                         <?php
+                        $query1 = "SELECT * FROM t_pinjam";
+                        $sql = mysqli_query(connection(), $query1);
+                        while ($data1 = mysqli_fetch_array($sql)) {
+                            $id = $data1['id_pinjam']+1;
+                        }
+
                         $query  = "SELECT * FROM t_ruangan";
                         $result = mysqli_query(connection(), $query);
 
@@ -99,6 +105,8 @@
                     <label class="labket" for="tambahan">Tambahan :</label>
                     <svg id="sar-btn2" class="inket" xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24"><path d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4v4Zm-6 4q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21H5Z"/></svg>
 
+                    <input type="hidden" name="id_pinjam" id="id_pinjam" value="<?php echo $id; ?>">
+
                     <div id="modal1" class="mdl-sar-cont">
                         <div class="mdl-alat-sar">
                             <div>
@@ -114,54 +122,24 @@
                                         <th>Jumlah</th>
                                         <th>Keterangan</th>
                                     </tr>
+
+                                    <?php
+                                    $query2  = "SELECT * FROM t_barang";
+                                    $result2 = mysqli_query(connection(), $query2);
+                                    $no = 1;
+                                    $no1 = $no2 = $no3 = $no4 = 0;
+
+                                    while ($data2 = mysqli_fetch_array($result2)) {
+                                    ?>
+
                                     <tr>
-                                        <td>1</td>
-                                        <td>TV</td>
-                                        <td><input class="box" type="number" name="tv" id="tv"></td>
-                                        <td><input class="box1" type="text" name="kettv" id="kettv"></td>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $data2['n_barang']; ?></td>
+                                        <td><input class="box" type="number" name="jml<?php echo $no1++;?>" id="jml<?php echo $no2++;?>"></td>
+                                        <td><input class="box1" type="text" name="ket<?php echo $no3++;?>" id="ket<?php echo $no4++;?>"></td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Printer</td>
-                                        <td><input class="box" type="number" name="printer" id="printer"></td>
-                                        <td><input class="box1" type="input" name="ketpr" id="ketpr"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>sofa</td>
-                                        <td><input class="box" type="number" name="sofa" id="sofa"></td>
-                                        <td><input class="box1" type="text" name="ketso" id="ketso"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Meja Sofa</td>
-                                        <td><input class="box" type="number" name="mjSofa" id="mjSofa"></td>
-                                        <td><input class="box1" type="text" name="ketmj" id="ketmj"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Item</td>
-                                        <td><input class="box" type="number" name="flipC" id="flipC"></td>
-                                        <td><input class="box1" type="text" name="ketfl" id="ketfl"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Item</td>
-                                        <td><input class="box" type="number" name="flipC" id="flipC"></td>
-                                        <td><input class="box1" type="text" name="ketfl" id="ketfl"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Item</td>
-                                        <td><input class="box" type="number" name="flipC" id="flipC"></td>
-                                        <td><input class="box1" type="text" name="ketfl" id="ketfl"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Item</td>
-                                        <td><input class="box" type="number" name="flipC" id="flipC"></td>
-                                        <td><input class="box1" type="text" name="ketfl" id="ketfl"></td>
-                                    </tr>
+
+                                    <?php }; ?>
                                 </table>
                             </div>
                         </div>
