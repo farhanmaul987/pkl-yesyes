@@ -432,6 +432,7 @@ textarea {
 
 table {
     margin-bottom: 3rem;
+    overflow-x: scroll;
 }
 
 table,
