@@ -58,8 +58,6 @@
 
     <section class="main">
         <div class="title">Ruangan 1</div>
-        <?php for ($i=0; $i < 5; $i++) { 
-        ?>
             <div class="tabel">
                 <table style="width: 90%;">
                     <tr>
@@ -86,16 +84,133 @@
                             <td><?php echo $d['keperluan']; ?></td>
                             <td><?php echo $d['tanggal']; ?></td>
                             <td><?php echo $d['waktu']; ?></td>
-    
                         </tr>
-                        
-                    <?php
-                    }
-                    ?>
-
+                    <?php };?>
                 </table>
             </div>
-        <?php };?>
+        <div class="title">Ruangan 2</div>
+            <div class="tabel">
+                <table style="width: 90%;">
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Keperluan</th>
+                        <th>Tanggal</th>
+                        <th>Waktu</th>
+                    </tr>
+
+                    <?php
+                    $no = 1;
+                    $query = mysqli_query(connection(), 'SELECT t_ruangan.n_ruangan, t_pinjam.keperluan, t_pinjam.tanggal, t_pinjam.waktu 
+                    FROM t_pinjam 
+                    INNER JOIN t_ruangan 
+                    ON t_pinjam.id_ruangan = t_ruangan.id_ruangan 
+                    WHERE t_pinjam.id_ruangan = t_ruangan.id_ruangan AND t_pinjam.id_ruangan = 2
+                    ORDER BY t_pinjam.id_pinjam DESC;');
+                    while ($d = mysqli_fetch_array($query)) {
+                    ?>
+                        <tr class="">
+                            <td class="qe"><?php echo $no++; ?></td>
+                            <td><?php echo $d['n_ruangan']; ?></td>
+                            <td><?php echo $d['keperluan']; ?></td>
+                            <td><?php echo $d['tanggal']; ?></td>
+                            <td><?php echo $d['waktu']; ?></td>
+                        </tr>
+                    <?php };?>
+                </table>
+            </div>
+        <div class="title">Ruangan 3</div>
+            <div class="tabel">
+                <table style="width: 90%;">
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Keperluan</th>
+                        <th>Tanggal</th>
+                        <th>Waktu</th>
+                    </tr>
+                    <?php
+                    $no = 1;
+                    $query = mysqli_query(connection(), 'SELECT t_ruangan.n_ruangan, t_pinjam.keperluan, t_pinjam.tanggal, t_pinjam.waktu 
+                    FROM t_pinjam 
+                    INNER JOIN t_ruangan 
+                    ON t_pinjam.id_ruangan = t_ruangan.id_ruangan 
+                    WHERE t_pinjam.id_ruangan = t_ruangan.id_ruangan AND t_pinjam.id_ruangan = 3
+                    ORDER BY t_pinjam.id_pinjam DESC;');
+                    while ($d = mysqli_fetch_array($query)) {
+                    ?>
+                        <tr class="">
+                            <td class="qe"><?php echo $no++; ?></td>
+                            <td><?php echo $d['n_ruangan']; ?></td>
+                            <td><?php echo $d['keperluan']; ?></td>
+                            <td><?php echo $d['tanggal']; ?></td>
+                            <td><?php echo $d['waktu']; ?></td>
+                        </tr>
+                    <?php };?>
+                </table>
+            </div>
+        <div class="title">Ruangan 4</div>
+            <div class="tabel">
+                <table style="width: 90%;">
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Keperluan</th>
+                        <th>Tanggal</th>
+                        <th>Waktu</th>
+                    </tr>
+
+                    <?php
+                    $no = 1;
+                    $query = mysqli_query(connection(), 'SELECT t_ruangan.n_ruangan, t_pinjam.keperluan, t_pinjam.tanggal, t_pinjam.waktu 
+                    FROM t_pinjam 
+                    INNER JOIN t_ruangan 
+                    ON t_pinjam.id_ruangan = t_ruangan.id_ruangan 
+                    WHERE t_pinjam.id_ruangan = t_ruangan.id_ruangan AND t_pinjam.id_ruangan = 4
+                    ORDER BY t_pinjam.id_pinjam DESC;');
+                    while ($d = mysqli_fetch_array($query)) {
+                    ?>
+                        <tr class="">
+                            <td class="qe"><?php echo $no++; ?></td>
+                            <td><?php echo $d['n_ruangan']; ?></td>
+                            <td><?php echo $d['keperluan']; ?></td>
+                            <td><?php echo $d['tanggal']; ?></td>
+                            <td><?php echo $d['waktu']; ?></td>
+                        </tr>
+                    <?php };?>
+                </table>
+            </div>
+        <div class="title">Ruangan 5</div>
+            <div class="tabel">
+                <table style="width: 90%;">
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Keperluan</th>
+                        <th>Tanggal</th>
+                        <th>Waktu</th>
+                    </tr>
+
+                    <?php
+                    $no = 1;
+                    $query = mysqli_query(connection(), 'SELECT t_ruangan.n_ruangan, t_pinjam.keperluan, t_pinjam.tanggal, t_pinjam.waktu 
+                    FROM t_pinjam 
+                    INNER JOIN t_ruangan 
+                    ON t_pinjam.id_ruangan = t_ruangan.id_ruangan 
+                    WHERE t_pinjam.id_ruangan = t_ruangan.id_ruangan AND t_pinjam.id_ruangan = 5
+                    ORDER BY t_pinjam.id_pinjam DESC;');
+                    while ($d = mysqli_fetch_array($query)) {
+                    ?>
+                        <tr class="">
+                            <td class="qe"><?php echo $no++; ?></td>
+                            <td><?php echo $d['n_ruangan']; ?></td>
+                            <td><?php echo $d['keperluan']; ?></td>
+                            <td><?php echo $d['tanggal']; ?></td>
+                            <td><?php echo $d['waktu']; ?></td>
+                        </tr>
+                    <?php };?>
+                </table>
+            </div>
         <div class="footerCont">
             <div class="footer">
                 <p class="p1">Copyright 2023 PKL UPNVJT </p>
@@ -107,5 +222,4 @@
     
     <script src="script.js"></script>
 </body>
-
 </html>
