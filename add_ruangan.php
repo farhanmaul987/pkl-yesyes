@@ -27,12 +27,12 @@
             <?php date_default_timezone_set('Asia/Jakarta'); ?>
             <form role="form" action="act_addruangan.php" method="POST" autocomplete="off">
                 <div class="inputCont">
-                    <label class="labnam" for="n_ruangan">Nama Ruangan:</label>
-                    <input class="innam" type="text" name="n_ruangan" id="n_ruangan" required>
+                    <label class="labnaru" for="n_ruangan">Nama Ruangan:</label>
+                    <input class="innaru" type="text" name="n_ruangan" id="n_ruangan" required>
 
                     <!-- <input type="hidden" id="status" name="status" value="Pending">  -->
                     
-                    <input class="button1" type="submit" value="Kumpulkan" name="submit" />
+                    <input class="button2" type="submit" value="Kumpulkan" name="submit" />
                 </div>
             </form>
         </div>

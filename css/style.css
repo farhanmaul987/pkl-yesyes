@@ -293,6 +293,31 @@ select {
     background-color: #d59f16b4;
 }
 
+.labnaru {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.innaru {
+    grid-column: 2/4;
+    grid-row: 3/5;
+}
+
+.button2 {
+    border-radius: 5px;
+    font-weight: 400;
+    color: black;
+    background-color: #d5a016;
+    border: 0px;
+    grid-column: 2/4;
+    grid-row: 9/11;
+}
+
+.button2:hover {
+    color: black;
+    background-color: #d59f16b4;
+}
+
 /* modal 1 */
 .mdl-sar-cont {
     display: none;
