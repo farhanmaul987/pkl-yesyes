@@ -164,7 +164,7 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
                                         </svg>
                                     </div>
                                     <div class="textArea">
-                                        <textarea name="req" id="req" cols="100" rows="20"></textarea>
+                                        <textarea name="tambahan" id="req" cols="100" rows="20" value=""><?php echo $data['tambahan'] ?></textarea>
                                     </div>
 
                                 </div>

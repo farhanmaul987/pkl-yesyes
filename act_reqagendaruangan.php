@@ -9,7 +9,7 @@ require_once('./index_files/conndb3.php');
         $ruangan            = ($_POST['ruangan']);
         $tanggal            = ($_POST['tanggal']);
         $waktu              = ($_POST['waktu']);
-        $req                = ($_POST['req']);
+        $tambahan           = ($_POST['tambahan']);
         $status             = ($_POST['status']);
         
         if ($nama == '' or $telp == '' or $keperluan == '') {
@@ -17,7 +17,7 @@ require_once('./index_files/conndb3.php');
         }
 
         if (empty($eror)) {
-            $query	 	= "INSERT INTO t_pinjam (nama, keperluan, telp, id_ruangan, tanggal, waktu, tambahan, status) VALUES ('$nama', '$keperluan', '$telp', '$ruangan', '$tanggal', '$waktu', '$req', '$status')";
+            $query	 	= "INSERT INTO t_pinjam (nama, keperluan, telp, id_ruangan, tanggal, waktu, tambahan, status) VALUES ('$nama', '$keperluan', '$telp', '$ruangan', '$tanggal', '$waktu', '$tambahan', '$status')";
             $result = mysqli_query(connection(), $query);
     
             if ($result) {
