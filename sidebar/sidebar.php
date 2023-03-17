@@ -15,11 +15,11 @@
         <a href="./status.php">
             <li>Status Ajuan</li>
         </a>
-        <a href="./add_ruangan.php">
-            <li>Tambah Ruangan</li>
-        </a>
         <a href="./ruangan.php">
             <li>Daftar Ruangan</li>
+        </a>
+        <a href="">
+            <li class="logout">Logout</li>
         </a>
     </ul>
 </div>
