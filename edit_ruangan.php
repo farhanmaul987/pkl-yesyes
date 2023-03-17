@@ -1,17 +1,14 @@
 <?php
     include('./index_files/conndb3.php');
 
-    $result    = mysqli_query(connection(), "SELECT * FROM t_ruangan");
+    $result    = mysqli_query(connection(), "SELECT * FROM t_ruangan WHERE id_ruangan='$_GET[id_ruangan]'");
 ?>
 <?php
     if(isset($_POST['proses'])):
-        mysqli_query(connection(), "UPDATE t_ruangan SET n_ruangan = '$_POST[namaUpd]' WHERE id_ruangan=$_GET[id_ruangan]");
+        mysqli_query(connection(), "UPDATE t_ruangan SET n_ruangan = '$_POST[n_ruanganUpd]' WHERE id_ruangan=$_GET[id_ruangan]");
         echo "<script>window.location='ruangan.php';</script>";
     endif;
 ?>
-
-
-<?php include('./index_files/conndb3.php'); ?>
 
 <html lang="en">
 <head>
@@ -34,18 +31,18 @@
         <h1 class="title">Ubah Data Ruangan</h1>
 
         <div class="forms">
-            <?php while($data = mysqli_fetch_array($result)): ?>
-            <form role="form" action="act_addruangan.php" method="POST" autocomplete="off">
+            <form role="form" action="" method="POST" autocomplete="off">
                 <div class="inputCont">
-                    <label class="labnam" for="n_ruangan">Nama Ruangan:</label>
-                    <input class="innam" type="text" name="n_ruangan" id="n_ruangan" value="<?= $data['n_ruangan']?>" required>
+                    <?php while($data = mysqli_fetch_array($result)): ?>
+                        <label class="labnam" for="n_ruangan">Nama Ruangan:</label>
+                        <input class="innam" type="text" name="n_ruanganUpd" id="n_ruangan" value="<?= $data['n_ruangan']?>" required>
 
                     <!-- <input type="hidden" id="status" name="status" value="Pending">  -->
                     
+                    <?php endwhile;?>
                     <input class="button1" type="submit" value="Kumpulkan" name="proses" />
                 </div>
             </form>
-            <?php endwhile;?>
         </div>
 
         <div class="footerCont">
