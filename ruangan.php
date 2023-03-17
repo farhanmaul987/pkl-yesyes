@@ -34,9 +34,6 @@
                 <a href="./add_ruangan.php">
                     <li>Tambah Ruangan</li>
                 </a>
-                <a href="./ruangan.php">
-                    <li>Daftar Ruangan</li>
-                </a>
             </ul>
         </div>
 
@@ -57,7 +54,7 @@
     </section>
 
     <section class="main">
-        <div class="title">Status Ajuan Peminjaman Ruang Rapat</div>
+        <div class="title">Daftar Nama Ruangan</div>
 
         <!-- <div>
             <button type="button" class="btn btn-outline-primary">Primary</button>
@@ -66,45 +63,24 @@
             <table style="width: 90%;">
                 <tr>
                     <th>No</th>
-                    <th>Nama</th>
-                    <th>No Telepon</th>
-                    <th>Ruang</th>
-                    <th>Keperluan</th>
-                    <th>Tanggal</th>
-                    <th>Waktu</th>
-                    <th>Status</th>
+                    <th>Nama Ruangan</th>
+                    <th colspan="" style="text-align:center">Action</th>
                 </tr>
 
                 <?php
                 $no = 1;
-                $query = mysqli_query(connection(), 'SELECT t_pinjam.nama, t_pinjam.telp, t_ruangan.n_ruangan, t_pinjam.keperluan, t_pinjam.tanggal, t_pinjam.waktu, t_pinjam.status FROM t_pinjam INNER JOIN t_ruangan ON t_pinjam.id_ruangan = t_ruangan.id_ruangan ORDER BY t_pinjam.id_pinjam DESC ;');
-                while ($d = mysqli_fetch_array($query)) {
-                    if ($d['status'] == "Pending"){
-                        $color = "style= 'background-color: #FFBCD1'";
-                    }
-                    else if ($d['status'] == "Diterima"){
-                        $color = "style= 'background-color: #00e00b'";
-                    }
-                    else if ($d['status'] == "Ditolak"){
-                        $color = "style= 'background-color: #ff0000'";
-                    }
-                ?>
-
-
+                $query = mysqli_query(connection(), 'SELECT * FROM t_ruangan ;');
+                while ($d = mysqli_fetch_array($query)):?>
                     <tr class="">
                         <td class="qe"><?php echo $no++; ?></td>
-                        <td><?php echo $d['nama']; ?></td>
-                        <td><?php echo $d['telp']; ?></td>
                         <td><?php echo $d['n_ruangan']; ?></td>
-                        <td><?php echo $d['keperluan']; ?></td>
-                        <td><?php echo $d['tanggal']; ?></td>
-                        <td><?php echo $d['waktu']; ?></td>
-                        <td <?php echo $color?>><?php echo $d['status'];?></td>
+                                                <td class="icon">
+                            <a href="<?php echo "edit_ruangan.php?id_ruangan=" . $d['id_ruangan']; ?>"><iconify-icon class="edit" icon="mdi:pencil-box" width="25" height="25"></iconify-icon></a>
+                            <a href="<?php echo "act_hapusruangan.php?id_ruangan=" . $d['id_ruangan']; ?>"><iconify-icon class="decline" icon="mdi:close-box" width="25" height="25" onclick="return confirm('Yakin akan menghapus data ?')"></iconify-icon></a>
+                        </td>
                     </tr>
                     
-                <?php
-                }
-                ?>
+                <?php endwhile;?>
 
             </table>
         </div>
@@ -116,10 +92,7 @@
             </div>
         </div>
     </section>
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
     <script src="script.js"></script>
 </body>
 

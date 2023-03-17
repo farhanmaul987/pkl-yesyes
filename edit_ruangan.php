@@ -1,7 +1,19 @@
-<?php require_once('./index_files/conndb3.php') ?>
+<?php
+    include('./index_files/conndb3.php');
+
+    $result    = mysqli_query(connection(), "SELECT * FROM t_ruangan");
+?>
+<?php
+    if(isset($_POST['proses'])):
+        mysqli_query(connection(), "UPDATE t_ruangan SET n_ruangan = '$_POST[namaUpd]' WHERE id_ruangan=$_GET[id_ruangan]");
+        echo "<script>window.location='ruangan.php';</script>";
+    endif;
+?>
+
+
+<?php include('./index_files/conndb3.php'); ?>
 
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +23,14 @@
     <link rel="stylesheet" href="css/style.css">
     <title>SIPERU</title>
 </head>
-
-
 <body>
     <section class="sidebarr">
         <div class="sidebar">
             <img class="logo" src="./assets/cropped-Logo-BPK-crop.png" alt="Logo BPK">
             <ul>
+                <a href="./index.php">
+                    <li>Dashboard</li>
+                </a>
                 <a href="./konf_agendaruangan.php">
                     <li>Konfirmasi Peminjaman</li>
                 </a>
@@ -42,54 +55,36 @@
                 <a href="./konf_agendaruangan.php">
                     <li>Konfirmasi Peminjaman</li>
                 </a>
-                <a href="./add_agendaruangan.php">
+                <a href="./index.php">
                     <li>Form Peminjaman</li>
                 </a>
                 <a href="./status.php">
                     <li>Status Ajuan</li>
+                </a>
+                <a href="./add_ruangan.php">
+                    <li>Tambah Ruangan</li>
                 </a>
             </ul>
         </div>
     </section>
 
     <section class="main">
-        <?php
-        $query = mysqli_query(connection(), 'SELECT * 
-            FROM t_ruangan;');
-        // print_r(mysqli_fetch_array($query));
-        while ($d = mysqli_fetch_array($query)) {
-        ?>
-            <div class="title mySlides"><?php echo $d['n_ruangan']; ?></div>
-            <div class="tabel">
-                <table style="width: 90%;">
-                    <tr>
-                        <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                    </tr>
-                    <?php 
-                        $no = 1;
-                        $query2 = mysqli_query(connection(), 'SELECT tanggal, waktu FROM t_pinjam WHERE id_ruangan = '. $d['id_ruangan']);
-                        $cek =  mysqli_num_rows($query2);
-                        // echo $cek;
-                        if($cek==0):
-                            echo"<tr>";
-                                echo'<td colspan="3" style="text-align:center;">';
-                                    echo "Tidak ada data yang ditemukan";
-                                echo"</td>";
-                            echo"</tr>";
-                        else:
-                            while($d2 = mysqli_fetch_array($query2)):?>
-                            <tr class="">
-                                <td class="qe"><?php echo $no++; ?></td>
-                                <td><?php echo $d2['tanggal']; ?></td>
-                                <td><?php echo $d2['waktu']; ?></td>
-                            </tr>
-                            <?php endwhile; ?>
-                        <?php endif; ?>
-                </table>  
-            </div>
-        <?php }; ?>
+        <h1 class="title">Ubah Data Ruangan</h1>
+
+        <div class="forms">
+            <?php while($data = mysqli_fetch_array($result)): ?>
+            <form role="form" action="act_addruangan.php" method="POST" autocomplete="off">
+                <div class="inputCont">
+                    <label class="labnam" for="n_ruangan">Nama Ruangan:</label>
+                    <input class="innam" type="text" name="n_ruangan" id="n_ruangan" value="<?= $data['n_ruangan']?>" required>
+
+                    <!-- <input type="hidden" id="status" name="status" value="Pending">  -->
+                    
+                    <input class="button1" type="submit" value="Kumpulkan" name="proses" />
+                </div>
+            </form>
+            <?php endwhile;?>
+        </div>
 
         <div class="footerCont">
             <div class="footer">
@@ -99,6 +94,9 @@
         </div>
     </section>
 
+    <!-- Script -->
+    <script src="script.js"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 </body>
 
 </html>

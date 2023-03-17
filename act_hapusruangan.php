@@ -3,14 +3,14 @@
 
     if($_SERVER['REQUEST_METHOD'] === 'GET')
     {
-        if(isset($_GET['id_pinjam']))
+        if(isset($_GET['id_ruangan']))
         {
-            $id_pinjam  = $_GET['id_pinjam'];
+            $id_ruangan  = $_GET['id_ruangan'];
 
-            $query  = "DELETE FROM t_pinjam WHERE id_pinjam = '$id_pinjam' ";
+            $query  = "DELETE FROM t_ruangan WHERE id_ruangan = '$id_ruangan' ";
             $result = mysqli_query(connection(), $query);
             
-            echo"<script>window.location='status.php';</script>";
+            echo"<script>window.location='ruangan.php';</script>";
             // header('Location : status.php');
         }
     }
