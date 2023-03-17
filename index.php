@@ -8,48 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <link rel="icon" type="image/png" href="./assets/BPK-Logo.png" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_index.css">
     <title>SIPERU</title>
 </head>
 
 
 <body>
     <section class="sidebarr">
-        <div class="sidebar">
-            <img class="logo" src="./assets/cropped-Logo-BPK-crop.png" alt="Logo BPK">
-            <ul>
-                <a href="./konf_agendaruangan.php">
-                    <li>Konfirmasi Peminjaman</li>
-                </a>
-                <a href="./add_agendaruangan.php">
-                    <li>Form Peminjaman</li>
-                </a>
-                <a href="./status.php">
-                    <li>Status Ajuan</li>
-                </a>
-                <a href="./add_ruangan.php">
-                    <li>Tambah Ruangan</li>
-                </a>
-                <a href="./ruangan.php">
-                    <li>Daftar Ruangan</li>
-                </a>
-            </ul>
-        </div>
-
-        <div class="sidebarDum">
-            <img class="logo" src="./assets/cropped-Logo-BPK-crop.png" alt="Logo BPK">
-            <ul>
-                <a href="./konf_agendaruangan.php">
-                    <li>Konfirmasi Peminjaman</li>
-                </a>
-                <a href="./add_agendaruangan.php">
-                    <li>Form Peminjaman</li>
-                </a>
-                <a href="./status.php">
-                    <li>Status Ajuan</li>
-                </a>
-            </ul>
-        </div>
+        <?php
+            include ('./sidebar/sidebar.php')
+        ?>
     </section>
 
     <section class="main">
