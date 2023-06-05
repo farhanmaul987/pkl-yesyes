@@ -20,10 +20,11 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
     <link rel="stylesheet" href="css/style.css">
     <title>SIPERU</title>
 </head>
+
 <body>
     <section class="sidebarr">
         <?php
-            include ('./sidebar/sidebar.php')
+        include('./sidebar/sidebar.php')
         ?>
     </section>
 
@@ -88,7 +89,7 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
                                 <div>
                                     <div class="mdl-head">
                                         <h2 class="t-table">Pilih Sarana Ruangan</h2>
-                                        <svg id="kntl1" class="close" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                        <svg class="close" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                                             <path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z" />
                                         </svg>
                                     </div>
@@ -125,7 +126,7 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
                                 <div>
                                     <div class="mdl-head">
                                         <h2 class="t-table">Silakan Isi Permintaan Tambahan</h2>
-                                        <svg id="kntl2" class="close" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                        <svg class="close" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                                             <path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z" />
                                         </svg>
                                     </div>
@@ -153,7 +154,8 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
