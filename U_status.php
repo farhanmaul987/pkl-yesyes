@@ -17,7 +17,7 @@
 <body>
     <section class="sidebarr">
         <?php
-            include ('./sidebar/sidebar.php')
+            include ('./sidebar/sidebar_user.php')
         ?>
     </section>
 
@@ -65,7 +65,7 @@
                         $color = "style= 'background-color: #ff0000'";
                     }
                     else if ($d['status'] == "Selesai"){
-                        $color = "style= 'background-color: #019f38'";
+                        $color = "style= 'background-color: #00e00b'";
                     }
                 ?>
 

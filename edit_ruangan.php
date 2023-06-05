@@ -34,13 +34,16 @@
             <form role="form" action="" method="POST" autocomplete="off">
                 <div class="inputCont">
                     <?php while($data = mysqli_fetch_array($result)): ?>
-                        <label class="labnam" for="n_ruangan">Nama Ruangan:</label>
-                        <input class="innam" type="text" name="n_ruanganUpd" id="n_ruangan" value="<?= $data['n_ruangan']?>" required>
+                        <label class="labnaru" for="n_ruangan">Nama Ruangan:</label>
+                        <input class="innaru" type="text" name="n_ruanganUpd" id="n_ruangan" value="<?= $data['n_ruangan']?>" required>
+
+                        <label class="labkaru" for="kuota">Kuota Ruangan:</label>
+                        <input class="inkaru" type="text" name="kuota" id="kuota" value="<?= $data['kuota']?>" required>
 
                     <!-- <input type="hidden" id="status" name="status" value="Pending">  -->
                     
                     <?php endwhile;?>
-                    <input class="button1" type="submit" value="Kumpulkan" name="proses" />
+                    <input class="button2" type="submit" value="Kumpulkan" name="proses" />
                 </div>
             </form>
         </div>

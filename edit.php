@@ -70,6 +70,7 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
                             <option value="Pending" selected>Pending</option>
                             <option value="Diterima">Diterima</option>
                             <option value="Ditolak">Ditolak</option>
+                            <option value="Selesai">Selesai</option>
                         </select>
 
                         <label class="labsar1" for="sarana">Sarana :</label>

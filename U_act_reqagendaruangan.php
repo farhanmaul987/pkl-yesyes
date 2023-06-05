@@ -21,9 +21,9 @@ require_once('./index_files/conndb3.php');
             $result = mysqli_query(connection(), $query);
     
             if ($result) {
-                echo"<script>alert('Data berhasil ditambahkan'); window.location='status.php';</script>";
+                echo"<script>alert('Data berhasil ditambahkan'); window.location='U_status.php';</script>";
             } else {
-                echo"<script>alert('Data gagal ditambahkan'); window.location='add_agendaruangan.php';</script>";
+                echo"<script>alert('Data gagal ditambahkan'); window.location='U_add_agendaruangan.php';</script>";
             }
         }
 

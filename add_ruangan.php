@@ -29,6 +29,9 @@
                 <div class="inputCont">
                     <label class="labnaru" for="n_ruangan">Nama Ruangan:</label>
                     <input class="innaru" type="text" name="n_ruangan" id="n_ruangan" required>
+                    
+                    <label class="labkaru" for="kuota">Kuota Ruangan:</label>
+                    <input class="inkaru" type="text" name="kuota" id="kuota" required>
 
                     <!-- <input type="hidden" id="status" name="status" value="Pending">  -->
                     

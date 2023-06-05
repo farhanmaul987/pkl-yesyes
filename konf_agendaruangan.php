@@ -51,6 +51,9 @@
                     else if ($d['status'] == "Ditolak"){
                         $color = "style= 'background-color: #ff0000'";
                     }
+                    else if ($d['status'] == "Selesai"){
+                        $color = "style= 'background-color: #019f38'";
+                    }
                 ?>
 
                     <tr class="">
