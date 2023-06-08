@@ -1,4 +1,4 @@
-<?php require_once('./index_files/conndb3.php')?>
+<?php require_once('./index_files/conndb3.php') ?>
 
 <html lang="en">
 
@@ -17,7 +17,7 @@
 <body>
     <section class="sidebarr">
         <?php
-            include ('./sidebar/sidebar.php')
+        include('./sidebar/sidebar.php')
         ?>
     </section>
 
@@ -29,16 +29,16 @@
         </div> -->
         <div class="tabel">
             <table style="width: 90%;">
-            <div class="kontol">
                 <a class="link" href="./add_ruangan.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="addel" viewBox="0 0 24 24"><path fill="black" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="addel" viewBox="0 0 24 24">
+                        <path fill="black" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6Z" />
+                    </svg>
 
                 </a>
                 <div class="hoveredText">
                     <p>Tambah Ruangan</p>
                     <span>&#129305;</span>
                 </div>
-            </div>
                 <tr>
                     <th>No</th>
                     <th>Nama Ruangan</th>
@@ -49,18 +49,18 @@
                 <?php
                 $no = 1;
                 $query = mysqli_query(connection(), 'SELECT * FROM t_ruangan ;');
-                while ($d = mysqli_fetch_array($query)):?>
+                while ($d = mysqli_fetch_array($query)) : ?>
                     <tr class="">
                         <td class="qe"><?php echo $no++; ?></td>
                         <td><?php echo $d['n_ruangan']; ?></td>
                         <td> <?php echo $d['kuota']; ?> orang</td>
-                                                <td class="icon">
+                        <td class="icon">
                             <a href="<?php echo "edit_ruangan.php?id_ruangan=" . $d['id_ruangan']; ?>"><iconify-icon class="edit" icon="mdi:pencil-box" width="25" height="25"></iconify-icon></a>
                             <a href="<?php echo "act_hapusruangan.php?id_ruangan=" . $d['id_ruangan']; ?>"><iconify-icon class="decline" icon="mdi:close-box" width="25" height="25" onclick="return confirm('Yakin akan menghapus data ?')"></iconify-icon></a>
                         </td>
                     </tr>
-                    
-                <?php endwhile;?>
+
+                <?php endwhile; ?>
 
             </table>
         </div>

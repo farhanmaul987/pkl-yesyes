@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Jun 2023 pada 11.10
+-- Waktu pembuatan: 01 Mar 2023 pada 11.32
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -114,19 +114,12 @@ CREATE TABLE `t_ruangan` (
 -- Dumping data untuk tabel `t_ruangan`
 --
 
-INSERT INTO `t_ruangan` (`id_ruangan`, `n_ruangan`, `kuota`) VALUES
-(1, 'Wilis', 50),
-(2, 'Raung', 60),
-(3, 'Salak', 100),
-(4, 'Sumeru', 70),
-(5, 'Sindoro', 50),
-(6, 'Slamet', 40),
-(7, 'Cereme', 30),
-(8, 'Andong', 40),
-(9, 'Anjasmoro', 50),
-(10, 'Ijenmmmm', 50),
-(11, 'awdadd', 0),
-(12, 'Akmal', 0);
+INSERT INTO `t_ruangan` (`id_ruangan`, `n_ruangan`) VALUES
+(1, 'Ruangan 1'),
+(2, 'Ruangan 2'),
+(3, 'Ruangan 3'),
+(4, 'Ruangan 4'),
+(5, 'Ruangan 5');
 
 --
 -- Indexes for dumped tables
@@ -185,7 +178,7 @@ ALTER TABLE `t_pinjambarang`
 -- AUTO_INCREMENT untuk tabel `t_ruangan`
 --
 ALTER TABLE `t_ruangan`
-  MODIFY `id_ruangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_ruangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
