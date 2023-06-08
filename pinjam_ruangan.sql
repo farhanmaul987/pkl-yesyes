@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Mar 2023 pada 11.32
+-- Waktu pembuatan: 07 Jun 2023 pada 11.10
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -39,7 +39,8 @@ CREATE TABLE `t_barang` (
 INSERT INTO `t_barang` (`id_barang`, `n_barang`) VALUES
 (1, 'TV'),
 (2, 'Printer'),
-(3, 'Projector');
+(3, 'Projector'),
+(4, 'Kabel');
 
 -- --------------------------------------------------------
 
@@ -64,8 +65,12 @@ CREATE TABLE `t_pinjam` (
 --
 
 INSERT INTO `t_pinjam` (`id_pinjam`, `nama`, `keperluan`, `telp`, `id_ruangan`, `tanggal`, `waktu`, `tambahan`, `status`) VALUES
-(96, 'aka', 'aka', 1, 1, '2023-03-01', '15:02:00', 'tes1111', 'Pending'),
-(97, 'akmal tampan', 'kgn dia yg di sana :(', 1234556, 2, '2023-03-01', '16:33:00', 'tambahan akmal ganteng adalah akmal pemberani', 'Pending');
+(112, 'AKMALALA   ', 'RAPAT', 123456789, 1, '2023-03-17', '20:58:00', 'DADASDDASDSAD', 'Diterima'),
+(113, 'FADARR ', 'RAPAT', 12345678, 1, '2023-03-17', '20:59:00', 'AHAHHAHAAHAAH', 'Diterima'),
+(114, 'Akmallalalalal        ', 'Rapat', 89192332, 1, '2023-06-05', '17:57:00', '', 'Selesai'),
+(115, 'Rifki', 'Rapat', 123141541, 2, '2023-06-05', '18:42:00', '', 'Pending'),
+(116, 'Rifki', 'rapat', 12313241, 2, '2023-06-05', '18:46:00', '', 'Pending'),
+(117, 'farhan', 'rapat', 131312124, 2, '2023-06-05', '18:54:00', '', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -86,10 +91,12 @@ CREATE TABLE `t_pinjambarang` (
 --
 
 INSERT INTO `t_pinjambarang` (`id_pinjamBarang`, `id_pinjam`, `id_barang`, `jumlah`, `keterangan`) VALUES
-(38, 96, 1, 1, 'tv'),
-(39, 96, 3, 3, 'projector'),
-(40, 97, 1, 11, 'tv'),
-(41, 97, 3, 33, 'projector');
+(62, 0, 1, 1, 'ADAA'),
+(63, 0, 2, 2, 'ASDD'),
+(64, 0, 3, 3, 'ASDAD'),
+(65, 113, 1, 12, 'ADSD'),
+(66, 113, 2, 21, 'ASDA'),
+(67, 113, 3, 32, 'ASDASD');
 
 -- --------------------------------------------------------
 
@@ -99,19 +106,27 @@ INSERT INTO `t_pinjambarang` (`id_pinjamBarang`, `id_pinjam`, `id_barang`, `juml
 
 CREATE TABLE `t_ruangan` (
   `id_ruangan` int(11) NOT NULL,
-  `n_ruangan` varchar(45) NOT NULL
+  `n_ruangan` varchar(45) NOT NULL,
+  `kuota` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `t_ruangan`
 --
 
-INSERT INTO `t_ruangan` (`id_ruangan`, `n_ruangan`) VALUES
-(1, 'Ruangan 1'),
-(2, 'Ruangan 2'),
-(3, 'Ruangan 3'),
-(4, 'Ruangan 4'),
-(5, 'Ruangan 5');
+INSERT INTO `t_ruangan` (`id_ruangan`, `n_ruangan`, `kuota`) VALUES
+(1, 'Wilis', 50),
+(2, 'Raung', 60),
+(3, 'Salak', 100),
+(4, 'Sumeru', 70),
+(5, 'Sindoro', 50),
+(6, 'Slamet', 40),
+(7, 'Cereme', 30),
+(8, 'Andong', 40),
+(9, 'Anjasmoro', 50),
+(10, 'Ijenmmmm', 50),
+(11, 'awdadd', 0),
+(12, 'Akmal', 0);
 
 --
 -- Indexes for dumped tables
@@ -152,25 +167,25 @@ ALTER TABLE `t_ruangan`
 -- AUTO_INCREMENT untuk tabel `t_barang`
 --
 ALTER TABLE `t_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_pinjam`
 --
 ALTER TABLE `t_pinjam`
-  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_pinjambarang`
 --
 ALTER TABLE `t_pinjambarang`
-  MODIFY `id_pinjamBarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_pinjamBarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_ruangan`
 --
 ALTER TABLE `t_ruangan`
-  MODIFY `id_ruangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_ruangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

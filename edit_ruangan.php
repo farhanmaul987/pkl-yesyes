@@ -5,7 +5,7 @@
 ?>
 <?php
     if(isset($_POST['proses'])):
-        mysqli_query(connection(), "UPDATE t_ruangan SET n_ruangan = '$_POST[n_ruanganUpd]' WHERE id_ruangan=$_GET[id_ruangan]");
+        mysqli_query(connection(), "UPDATE t_ruangan SET n_ruangan = '$_POST[n_ruanganUpd]', kuota = '$_POST[kuotaUpd]' WHERE id_ruangan=$_GET[id_ruangan]");
         echo "<script>window.location='ruangan.php';</script>";
     endif;
 ?>
@@ -38,7 +38,7 @@
                         <input class="innaru" type="text" name="n_ruanganUpd" id="n_ruangan" value="<?= $data['n_ruangan']?>" required>
 
                         <label class="labkaru" for="kuota">Kuota Ruangan:</label>
-                        <input class="inkaru" type="text" name="kuota" id="kuota" value="<?= $data['kuota']?>" required>
+                        <input class="inkaru" type="text" name="kuotaUpd" id="kuota" value="<?= $data['kuota']?>" required>
 
                     <!-- <input type="hidden" id="status" name="status" value="Pending">  -->
                     

@@ -3,9 +3,10 @@
 
     if (isset($_POST['submit'])):
         $n_ruangan	            = $_POST['n_ruangan'];
+        $kuota	            = $_POST['kuota'];
 
         if (empty($eror)):
-            $query	 	= "INSERT INTO t_ruangan (n_ruangan) VALUES ('$n_ruangan')";
+            $query	 	= "INSERT INTO t_ruangan (n_ruangan, kuota) VALUES ('$n_ruangan', '$kuota')";
             $result     = mysqli_query(connection(), $query);
     
             if ($result):
