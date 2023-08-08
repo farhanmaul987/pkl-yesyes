@@ -4,10 +4,46 @@ include('./index_files/conndb3.php');
 $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE t_pinjam.id_ruangan = t_ruangan.id_ruangan and id_pinjam = '$_GET[id_pinjam]'");
 ?>
 
-<?php if (isset($_POST['proses'])) {
-    mysqli_query(connection(), "UPDATE t_pinjam SET nama = '$_POST[namaUpd]', keperluan='$_POST[keperluanUpd]', telp='$_POST[telpUpd]', id_ruangan='$_POST[ruanganUpd]', tanggal='$_POST[tanggalUpd]', waktu='$_POST[waktuUpd]', status='$_POST[statusUpd]' WHERE id_pinjam=$_GET[id_pinjam]");
-    echo "<script>window.location='status.php';</script>";
-} ?>
+<?php 
+    if (isset($_POST['proses'])) {
+        $namaUpd = $_POST['namaUpd'];
+        $keperluanUpd = $_POST['keperluanUpd'];
+        $telpUpd = $_POST['telpUpd'];
+        $ruanganUpd = $_POST['ruanganUpd'];
+        $tanggalUpd = $_POST['tanggalUpd'];
+        $waktuUpd = $_POST['waktuUpd'];
+        $statusUpd = $_POST['statusUpd'];
+    
+        // Update data pada tabel t_pinjam
+        mysqli_query(connection(), "UPDATE t_pinjam SET nama = '$namaUpd', keperluan = '$keperluanUpd', telp = '$telpUpd', id_ruangan = '$ruanganUpd', tanggal = '$tanggalUpd', waktu = '$waktuUpd', status = '$statusUpd' WHERE id_pinjam = $_GET[id_pinjam]");
+        
+        // Loop through existing sarana data and update quantities and descriptions
+        $result = mysqli_query(connection(), "SELECT * FROM t_barang");
+        $j = 0;
+        while ($data = mysqli_fetch_array($result)){
+            $j++;
+        }
+
+        //$barang = unserialize(serialize(array("TV", "Printer", "Projector")));
+        // $id_pinjam          = ($_POST['id_pinjam']);
+
+        $result2 = mysqli_query(connection(), "SELECT * FROM t_barang");
+
+        for ($i=0; $i<$j; $i++) {
+            $data_barang = mysqli_fetch_array($result2);
+            $id_barang = $data_barang['id_barang'];
+            $jml = $_POST['jml' . $id_barang];
+            $ket = $_POST['ket' . $id_barang];
+
+            if ($jml != NULL && $jml != 0) {
+                // Update existing sarana data
+                mysqli_query(connection(), "UPDATE t_pinjamBarang SET jumlah = $jml, keterangan = '$ket' WHERE id_pinjam = $_GET[id_pinjam] AND id_barang = $id_barang");
+                
+            }
+        }
+        echo "<script>window.location='status.php';</script>";
+    } 
+?>
 
 <html lang="en">
 
