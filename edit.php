@@ -18,27 +18,12 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
         mysqli_query(connection(), "UPDATE t_pinjam SET nama = '$namaUpd', keperluan = '$keperluanUpd', telp = '$telpUpd', id_ruangan = '$ruanganUpd', tanggal = '$tanggalUpd', waktu = '$waktuUpd', status = '$statusUpd' WHERE id_pinjam = $_GET[id_pinjam]");
         
         // Loop through existing sarana data and update quantities and descriptions
-        $result = mysqli_query(connection(), "SELECT * FROM t_barang");
-        $j = 0;
-        while ($data = mysqli_fetch_array($result)){
-            $j++;
-        }
-
-        //$barang = unserialize(serialize(array("TV", "Printer", "Projector")));
-        // $id_pinjam          = ($_POST['id_pinjam']);
-
-        $result2 = mysqli_query(connection(), "SELECT * FROM t_barang");
-
-        for ($i=0; $i<$j; $i++) {
-            $data_barang = mysqli_fetch_array($result2);
-            $id_barang = $data_barang['id_barang'];
-            $jml = $_POST['jml' . $id_barang];
-            $ket = $_POST['ket' . $id_barang];
-
+        foreach ($_POST['jml'] as $id_barang => $jml) {
+            $ket = $_POST['ket'][$id_barang];
+    
             if ($jml != NULL && $jml != 0) {
                 // Update existing sarana data
                 mysqli_query(connection(), "UPDATE t_pinjamBarang SET jumlah = $jml, keterangan = '$ket' WHERE id_pinjam = $_GET[id_pinjam] AND id_barang = $id_barang");
-                
             }
         }
         echo "<script>window.location='status.php';</script>";
@@ -141,15 +126,15 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
                                         $query2  = "SELECT a.*, b.n_barang FROM t_pinjambarang a, t_barang b WHERE a.id_pinjam = '$_GET[id_pinjam]' and b.id_barang = a.id_barang";
                                         $result2 = mysqli_query(connection(), $query2);
                                         $no = 1;
-                                        $no1 = $no2 = $no3 = $no4 = 0;
+                                        // $no1 = $no2 = $no3 = $no4 = 0;
 
                                         while ($data2 = mysqli_fetch_array($result2)) {
                                         ?>
                                             <tr>
                                                 <td><?php echo $no++; ?></td>
                                                 <td><?php echo $data2['n_barang']; ?></td>
-                                                <td><input class="box" type="number" name="jml<?php echo $no1++; ?>" id="jml<?php echo $no2++; ?>" value="<?php echo $data2['jumlah'] ?>"></td>
-                                                <td><input class="box1" type="text" name="ket<?php echo $no3++; ?>" id="ket<?php echo $no4++; ?> " value="<?php echo $data2['keterangan'] ?>"></td>
+                                                <td><input class="box" type="number" name="jml[<?php echo $data2['id_barang']; ?>]" value="<?php echo $data2['jumlah']; ?>"></td>
+                                                <td><input class="box1" type="text" name="ket[<?php echo $data2['id_barang']; ?>]" value="<?php echo $data2['keterangan']; ?>"></td>
                                             </tr>
                                         <?php }; ?>
                                     </table>
