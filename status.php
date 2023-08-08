@@ -1,4 +1,4 @@
-<?php require_once('./index_files/conndb3.php')?>
+<?php require_once('./index_files/conndb3.php') ?>
 
 <html lang="en">
 
@@ -17,7 +17,7 @@
 <body>
     <section class="sidebarr">
         <?php
-            include ('./sidebar/sidebar.php')
+        include('./sidebar/sidebar.php')
         ?>
     </section>
 
@@ -29,16 +29,16 @@
         </div> -->
         <div class="tabel">
             <table style="width: 90%;">
-            <div class="kontol">
                 <a class="link" href="./add_agendaruangan.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="addel" viewBox="0 0 24 24"><path fill="black" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="addel" viewBox="0 0 24 24">
+                        <path fill="black" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6Z" />
+                    </svg>
 
                 </a>
                 <div class="hoveredText">
                     <p>Tambah Agenda</p>
                     <span>&#129305;</span>
                 </div>
-            </div>
 
                 <tr>
                     <th>No</th>
@@ -55,16 +55,13 @@
                 $no = 1;
                 $query = mysqli_query(connection(), 'SELECT t_pinjam.nama, t_pinjam.telp, t_ruangan.n_ruangan, t_pinjam.keperluan, t_pinjam.tanggal, t_pinjam.waktu, t_pinjam.status FROM t_pinjam INNER JOIN t_ruangan ON t_pinjam.id_ruangan = t_ruangan.id_ruangan ORDER BY t_pinjam.id_pinjam DESC ;');
                 while ($d = mysqli_fetch_array($query)) {
-                    if ($d['status'] == "Pending"){
+                    if ($d['status'] == "Pending") {
                         $color = "style= 'background-color: #FFBCD1'";
-                    }
-                    else if ($d['status'] == "Diterima"){
+                    } else if ($d['status'] == "Diterima") {
                         $color = "style= 'background-color: #00e00b'";
-                    }
-                    else if ($d['status'] == "Ditolak"){
+                    } else if ($d['status'] == "Ditolak") {
                         $color = "style= 'background-color: #ff0000'";
-                    }
-                    else if ($d['status'] == "Selesai"){
+                    } else if ($d['status'] == "Selesai") {
                         $color = "style= 'background-color: #019f38'";
                     }
                 ?>
@@ -78,9 +75,9 @@
                         <td><?php echo $d['keperluan']; ?></td>
                         <td><?php echo $d['tanggal']; ?></td>
                         <td><?php echo $d['waktu']; ?></td>
-                        <td <?php echo $color?>><?php echo $d['status'];?></td>
+                        <td <?php echo $color ?>><?php echo $d['status']; ?></td>
                     </tr>
-                    
+
                 <?php
                 }
                 ?>
@@ -95,7 +92,7 @@
             </div>
         </div>
     </section>
-    
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

@@ -16,7 +16,7 @@
 <body>
     <section class="sidebarr">
         <?php
-            include ('./sidebar/sidebar.php')
+        include('./sidebar/sidebar.php')
         ?>
     </section>
 
@@ -43,7 +43,7 @@
                         $query1 = "SELECT * FROM t_pinjam";
                         $sql = mysqli_query(connection(), $query1);
                         while ($data1 = mysqli_fetch_array($sql)) {
-                            $id = $data1['id_pinjam']+1;
+                            $id = $data1['id_pinjam'] + 1;
                         }
 
                         $query  = "SELECT * FROM t_ruangan";
@@ -64,10 +64,14 @@
                     <input class="inwa" type="time" name="waktu" id="waktu" value="<?= date('H:i'); ?>" required autofocus>
 
                     <label class="labsar" for="sarana">Sarana :</label>
-                    <svg id="sar-btn1" class="insar" xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24"><path d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4v4Zm-6 4q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21H5Z"/></svg>
-                    
+                    <svg id="sar-btn1" class="insar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4v4Zm-6 4q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21H5Z" />
+                    </svg>
+
                     <label class="labket" for="tambahan">Tambahan :</label>
-                    <svg id="sar-btn2" class="inket" xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24"><path d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4v4Zm-6 4q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21H5Z"/></svg>
+                    <svg id="sar-btn2" class="inket" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4v4Zm-6 4q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21H5Z" />
+                    </svg>
 
                     <input type="hidden" name="id_pinjam" id="id_pinjam" value="<?php echo $id; ?>">
 
@@ -76,7 +80,9 @@
                             <div>
                                 <div class="mdl-head">
                                     <h2 class="t-table">Pilih Sarana Ruangan</h2>
-                                    <svg id="kntl1" class="close" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z"/></svg>
+                                    <svg class="close" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z" />
+                                    </svg>
                                 </div>
 
                                 <table class="table-sar">
@@ -96,35 +102,37 @@
                                     while ($data2 = mysqli_fetch_array($result2)) {
                                     ?>
 
-                                    <tr>
-                                        <td><?php echo $no++; ?></td>
-                                        <td><?php echo $data2['n_barang']; ?></td>
-                                        <td><input class="box" type="number" name="jml<?php echo $no1++;?>" id="jml<?php echo $no2++;?>"></td>
-                                        <td><input class="box1" type="text" name="ket<?php echo $no3++;?>" id="ket<?php echo $no4++;?>"></td>
-                                    </tr>
+                                        <tr>
+                                            <td><?php echo $no++; ?></td>
+                                            <td><?php echo $data2['n_barang']; ?></td>
+                                            <td><input class="box" type="number" name="jml<?php echo $no1++; ?>" id="jml<?php echo $no2++; ?>"></td>
+                                            <td><input class="box1" type="text" name="ket<?php echo $no3++; ?>" id="ket<?php echo $no4++; ?>"></td>
+                                        </tr>
 
                                     <?php }; ?>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="modal2" class="mdl-ket-cont">
                         <div class="mdl-ket">
                             <div>
                                 <div class="mdl-head">
                                     <h2 class="t-table">Silakan Isi Permintaan Tambahan</h2>
-                                    <svg id="kntl2" class="close" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z"/></svg>
+                                    <svg id="kntl2" class="close" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z" />
+                                    </svg>
                                 </div>
                                 <div class="textArea">
                                     <textarea name="tambahan" id="req" cols="100" rows="20"></textarea>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
 
-                    <input type="hidden" id="status" name="status" value="Pending"> 
+                    <input type="hidden" id="status" name="status" value="Pending">
 
                     <input class="button1" type="submit" value="Kumpulkan" name="submit" />
                 </div>
