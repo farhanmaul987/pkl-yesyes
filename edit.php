@@ -12,10 +12,11 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
         $ruanganUpd = $_POST['ruanganUpd'];
         $tanggalUpd = $_POST['tanggalUpd'];
         $waktuUpd = $_POST['waktuUpd'];
+        $tambahanUpd = $_POST['tambahanUpd'];
         $statusUpd = $_POST['statusUpd'];
     
         // Update data pada tabel t_pinjam
-        mysqli_query(connection(), "UPDATE t_pinjam SET nama = '$namaUpd', keperluan = '$keperluanUpd', telp = '$telpUpd', id_ruangan = '$ruanganUpd', tanggal = '$tanggalUpd', waktu = '$waktuUpd', status = '$statusUpd' WHERE id_pinjam = $_GET[id_pinjam]");
+        mysqli_query(connection(), "UPDATE t_pinjam SET nama = '$namaUpd', keperluan = '$keperluanUpd', telp = '$telpUpd', id_ruangan = '$ruanganUpd', tanggal = '$tanggalUpd', waktu = '$waktuUpd', tambahan = '$tambahanUpd', status = '$statusUpd' WHERE id_pinjam = $_GET[id_pinjam]");
         
         // Loop through existing sarana data and update quantities and descriptions
         foreach ($_POST['jml'] as $id_barang => $jml) {
@@ -152,7 +153,7 @@ $result    = mysqli_query(connection(), "SELECT * FROM t_pinjam,t_ruangan WHERE 
                                         </svg>
                                     </div>
                                     <div class="textArea">
-                                        <textarea name="tambahan" id="req" cols="100" rows="20" value=""><?php echo $data['tambahan'] ?></textarea>
+                                        <textarea name="tambahanUpd" id="req" cols="100" rows="20" value=""><?php echo $data['tambahan'] ?></textarea>
                                     </div>
 
                                 </div>
