@@ -13,9 +13,9 @@ SIPERU
 Sistem ini merupakan project hasil dari PKL yang dilakukan di Badan Pemeriksa Keuangan (BPK) RI Perwakilan Provinsi Jawa Timur. Sistem yang berbasis website ini dibuat untuk mempermudah peminjaman ruangan rapat di dalam gedung BPK.
 </p>
 
-<h1>
+<h2>
 👥 Contributors
-</h1>
+</h2>
 
 - <a href="https://github.com/Rifki-aw">Rifki</a>
 - <a href="https://github.com/akmalaa">Akmal</a>
